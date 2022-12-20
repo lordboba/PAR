@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
 		DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2B1294FF19400E0740C /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DAC7E2AA294FF19400E0740C /* Project PAR(PlanActRest).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project PAR(PlanActRest).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2AD294FF19400E0740C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA9E4AA52951251600016D9C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				DA9E4AA72951277000016D9C /* HomeScreen.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DA9E4AA62951255700016D9C /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				DAC7E2B3294FF19400E0740C /* Main.storyboard */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		DAC7E2A1294FF19400E0740C = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +120,8 @@
 				DAC7E2AD294FF19400E0740C /* AppDelegate.swift */,
 				DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */,
 				DAC7E2B1294FF19400E0740C /* ViewController.swift */,
-				DAC7E2B3294FF19400E0740C /* Main.storyboard */,
+				DA9E4AA62951255700016D9C /* Layout */,
+				DA9E4AA52951251600016D9C /* New Group */,
 				DAC7E2B6294FF19700E0740C /* Assets.xcassets */,
 				DAC7E2B8294FF19700E0740C /* LaunchScreen.storyboard */,
 				DAC7E2BB294FF19700E0740C /* Info.plist */,
@@ -258,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */,
 				DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */,
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
 				DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */,
