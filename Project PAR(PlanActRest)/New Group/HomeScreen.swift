@@ -19,7 +19,11 @@ class HomeScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func TutorialButton(_ sender: Any) {
+        print("hi")
+        //sender.font = "Times New Roman"
+    }
+    
     /*
     // MARK: - Navigation
 
