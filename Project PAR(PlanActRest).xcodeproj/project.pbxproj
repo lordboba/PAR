@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D885E612952BC2000908FB7 /* TaskPrep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E602952BC2000908FB7 /* TaskPrep.swift */; };
+		0D885E66295390EB00908FB7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E65295390EB00908FB7 /* Task.swift */; };
+		0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E67295392B100908FB7 /* TaskBrain.swift */; };
+		0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E692953D0FF00908FB7 /* FocusTimer.swift */; };
+		0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E6B2953D82E00908FB7 /* GoalSetting.swift */; };
 		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
@@ -39,6 +43,10 @@
 
 /* Begin PBXFileReference section */
 		0D885E602952BC2000908FB7 /* TaskPrep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskPrep.swift; path = "Project PAR(PlanActRest)/New Group/TaskPrep.swift"; sourceTree = SOURCE_ROOT; };
+		0D885E65295390EB00908FB7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		0D885E67295392B100908FB7 /* TaskBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBrain.swift; sourceTree = "<group>"; };
+		0D885E692953D0FF00908FB7 /* FocusTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimer.swift; sourceTree = "<group>"; };
+		0D885E6B2953D82E00908FB7 /* GoalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
 		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DAC7E2AA294FF19400E0740C /* Project PAR(PlanActRest).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project PAR(PlanActRest).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2AD294FF19400E0740C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,11 +88,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D885E6429538BCE00908FB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D885E65295390EB00908FB7 /* Task.swift */,
+				0D885E67295392B100908FB7 /* TaskBrain.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DA9E4AA52951251600016D9C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				0D885E6B2953D82E00908FB7 /* GoalSetting.swift */,
 				DA9E4AA72951277000016D9C /* HomeScreen.swift */,
 				0D885E602952BC2000908FB7 /* TaskPrep.swift */,
+				0D885E692953D0FF00908FB7 /* FocusTimer.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -123,6 +142,7 @@
 				DAC7E2AD294FF19400E0740C /* AppDelegate.swift */,
 				DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */,
 				DAC7E2B1294FF19400E0740C /* ViewController.swift */,
+				0D885E6429538BCE00908FB7 /* Model */,
 				DA9E4AA62951255700016D9C /* Layout */,
 				DA9E4AA52951251600016D9C /* New Group */,
 				DAC7E2B6294FF19700E0740C /* Assets.xcassets */,
@@ -284,8 +304,12 @@
 				0D885E612952BC2000908FB7 /* TaskPrep.swift in Sources */,
 				DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */,
 				DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */,
+				0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */,
+				0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */,
+				0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */,
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
 				DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */,
+				0D885E66295390EB00908FB7 /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
