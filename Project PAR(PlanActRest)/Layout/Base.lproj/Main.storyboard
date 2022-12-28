@@ -170,7 +170,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Learn More"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-Lp-vjU">
-                                <rect key="frame" x="152" y="655" width="111" height="35"/>
+                                <rect key="frame" x="152" y="655" width="111" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Learn More"/>
@@ -208,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R90-mW-xSu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8357" y="183"/>
+            <point key="canvasLocation" x="8356.5217391304359" y="182.8125"/>
         </scene>
         <!--Task Prep-->
         <scene sceneID="OMs-zq-3EI">
@@ -342,15 +342,15 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-oY-WvF">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="51"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-DX-WuN">
-                                            <rect key="frame" x="0.0" y="12.5" width="58" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="8.5" width="58" height="34.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Edit "/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIZ-Gg-424">
-                                            <rect key="frame" x="188" y="12.5" width="92" height="34.5"/>
+                                            <rect key="frame" x="188" y="8.5" width="92" height="34.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Add item">
                                                 <backgroundConfiguration key="background">
@@ -365,26 +365,71 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdL-bQ-jfU">
-                                    <rect key="frame" x="118.5" y="67" width="43" height="20.5"/>
+                                    <rect key="frame" x="118.5" y="59" width="43" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tPl-YM-3iY">
-                                    <rect key="frame" x="0.0" y="95.5" width="280" height="373"/>
+                                    <rect key="frame" x="0.0" y="87.5" width="280" height="381"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                     <color key="sectionIndexColor" systemColor="labelColor"/>
                                     <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                                     <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="8yv-kQ-Q16">
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell1" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="8yv-kQ-Q16">
                                             <rect key="frame" x="0.0" y="50" width="280" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8yv-kQ-Q16" id="6AN-uO-tJk">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableViewCellContentView>
-                                            <accessibility key="accessibilityConfiguration">
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="cell1">
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                        </tableViewCell>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell2" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="3UD-pP-zwM" userLabel="cell2">
+                                            <rect key="frame" x="0.0" y="93.5" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3UD-pP-zwM" id="WLV-Dw-7KB">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableViewCellContentView>
+                                            <accessibility key="accessibilityConfiguration" identifier="cell2">
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                        </tableViewCell>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell3" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="mDd-Fg-tTD" userLabel="cell3">
+                                            <rect key="frame" x="0.0" y="137" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mDd-Fg-tTD" id="E4K-sM-CqQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableViewCellContentView>
+                                            <accessibility key="accessibilityConfiguration" identifier="cell3">
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                        </tableViewCell>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell4" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" id="7Yr-ZM-zHd" userLabel="cell4">
+                                            <rect key="frame" x="0.0" y="180.5" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Yr-ZM-zHd" id="9oN-v8-XjN">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableViewCellContentView>
+                                            <accessibility key="accessibilityConfiguration" identifier="cell4">
+                                                <bool key="isElement" value="YES"/>
+                                            </accessibility>
+                                        </tableViewCell>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cel5" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell5" id="jtZ-JR-OFi" userLabel="cell5">
+                                            <rect key="frame" x="0.0" y="224" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jtZ-JR-OFi" id="S7S-3v-7kM">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableViewCellContentView>
+                                            <accessibility key="accessibilityConfiguration" identifier="cell5">
                                                 <bool key="isElement" value="YES"/>
                                             </accessibility>
                                         </tableViewCell>
@@ -402,7 +447,7 @@
                         </stackView>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="5up-t0-6I1"/>
-                    <color key="backgroundColor" systemColor="systemMintColor"/>
+                    <color key="backgroundColor" red="0.6842925688" green="0.78720548820000003" blue="0.97491140460000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="2510" y="182"/>
@@ -811,9 +856,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
