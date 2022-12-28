@@ -16,6 +16,9 @@ class HomeScreen: UIViewController {
         let g = (hex & 0xff00) >> 8
         let b = hex & 0xff
         view.backgroundColor = UIColor(red: CGFloat(r) / 256.0, green: CGFloat(g) / 256.0, blue: CGFloat(b) / 256.0, alpha: 1)
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert, .badge, .sound]) { success, error in
+        }
         // Do any additional setup after loading the view.
     }
     
