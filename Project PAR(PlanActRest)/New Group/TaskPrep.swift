@@ -138,7 +138,10 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func addNewTasks(_ sender: Any) {
         //animateIn(desiredView: blurView)
         animateIn(desiredView: popUpView)
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+        //self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell1")
+
         //let vc = UIViewController()
         //vc.view.addSubview(tableView)
     }
@@ -147,7 +150,13 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func addTaskToList(_ sender: Any) {
-        
+        let temp = Task(name:"temporary", time:10)
+        taskBrain.addTask(task: temp)
+        print(taskBrain)
+        self.tableView.reloadData()
+        //self.refresher.endRefreshing()
+        //tableView.delegate = self
+        //tableView.dataSource = self
     }
     @IBOutlet var tableView: UITableView!
     
@@ -156,11 +165,12 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         super.viewDidLoad()
         
         //blurView.bounds = self.view.bounds
-        
+        //storyboard?.instantiateViewController(withIdentifier: "TaskPrep")
+
         popUpView.bounds = CGRect(x: 0, y: 0, width: popUpView.bounds.width, height: popUpView.bounds.height)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height)
+        //tableView.delegate = self
+        //tableView.dataSource = self
+        //tableView.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height)
         
         // Do any additional setup after loading the view.
     }
@@ -201,7 +211,11 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+     
+     */
+    @IBAction func addTask(_ sender: Any) {
+        
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("row tapped")
     }
@@ -209,7 +223,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return taskBrain.tasks.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
         cell.textLabel?.text = taskBrain.tasks[indexPath.row].name
         print("yo")
         return cell

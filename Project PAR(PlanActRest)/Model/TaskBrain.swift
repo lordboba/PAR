@@ -7,7 +7,7 @@
 
 import Foundation
 struct TaskBrain {
-    var tasks : [Task] = [Task(name:"Wash the dishes", time:15)]
+    var tasks : [Task] = [Task(name:"Wash the dishes", time:15), Task(name:"wash clothes", time:20)]
     mutating func addTask(task : Task) {
         tasks.append(task)
     }

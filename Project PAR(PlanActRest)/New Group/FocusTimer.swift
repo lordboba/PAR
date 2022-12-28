@@ -92,7 +92,7 @@ class FocusTimer: UIViewController {
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 
-        let userInfo = response.notification.request.content.userInfo
+        //let userInfo = response.notification.request.content.userInfo
         // Handle notification
 
         completionHandler()

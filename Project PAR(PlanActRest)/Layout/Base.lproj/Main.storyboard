@@ -213,7 +213,7 @@
         <!--Task Prep-->
         <scene sceneID="OMs-zq-3EI">
             <objects>
-                <viewController id="dqH-WU-KCE" customClass="TaskPrep" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskPrep" id="dqH-WU-KCE" customClass="TaskPrep" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gjc-si-wA2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -329,7 +329,7 @@
                         <outlet property="hours" destination="aPq-95-dIf" id="oUz-1v-W6a"/>
                         <outlet property="minutes" destination="hTG-5v-Udb" id="PBK-nn-7IU"/>
                         <outlet property="popUpView" destination="hyg-92-3XX" id="fgk-eG-3Sp"/>
-                        <outlet property="tableView" destination="tPl-YM-3iY" id="Wxa-Sf-3Lb"/>
+                        <outlet property="tableView" destination="wlg-Yp-RZF" id="VvA-Zd-U57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iVP-P1-ykp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -342,15 +342,15 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="fOO-oY-WvF">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="51"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="59"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-DX-WuN">
-                                            <rect key="frame" x="0.0" y="8.5" width="58" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="12.5" width="58" height="34.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Edit "/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIZ-Gg-424">
-                                            <rect key="frame" x="188" y="8.5" width="92" height="34.5"/>
+                                            <rect key="frame" x="188" y="12.5" width="92" height="34.5"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Add item">
                                                 <backgroundConfiguration key="background">
@@ -359,79 +359,29 @@
                                                 <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                             </buttonConfiguration>
                                             <connections>
+                                                <action selector="addTask:" destination="dqH-WU-KCE" eventType="touchUpInside" id="Tax-gF-aap"/>
                                                 <action selector="addTaskToList:" destination="dqH-WU-KCE" eventType="touchUpInside" id="hCq-y8-M9z"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdL-bQ-jfU">
-                                    <rect key="frame" x="118.5" y="59" width="43" height="20.5"/>
+                                    <rect key="frame" x="118.5" y="67" width="43" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tPl-YM-3iY">
-                                    <rect key="frame" x="0.0" y="87.5" width="280" height="381"/>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wlg-Yp-RZF">
+                                    <rect key="frame" x="0.0" y="95.5" width="280" height="373"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <color key="tintColor" systemColor="opaqueSeparatorColor"/>
-                                    <color key="sectionIndexColor" systemColor="labelColor"/>
-                                    <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor"/>
                                     <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell1" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="8yv-kQ-Q16">
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" id="2CH-nm-hRC">
                                             <rect key="frame" x="0.0" y="50" width="280" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8yv-kQ-Q16" id="6AN-uO-tJk">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2CH-nm-hRC" id="TbR-Ky-xfk">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableViewCellContentView>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="cell1">
-                                                <bool key="isElement" value="YES"/>
-                                            </accessibility>
-                                        </tableViewCell>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell2" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell2" id="3UD-pP-zwM" userLabel="cell2">
-                                            <rect key="frame" x="0.0" y="93.5" width="280" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3UD-pP-zwM" id="WLV-Dw-7KB">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </tableViewCellContentView>
-                                            <accessibility key="accessibilityConfiguration" identifier="cell2">
-                                                <bool key="isElement" value="YES"/>
-                                            </accessibility>
-                                        </tableViewCell>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell3" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" id="mDd-Fg-tTD" userLabel="cell3">
-                                            <rect key="frame" x="0.0" y="137" width="280" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mDd-Fg-tTD" id="E4K-sM-CqQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </tableViewCellContentView>
-                                            <accessibility key="accessibilityConfiguration" identifier="cell3">
-                                                <bool key="isElement" value="YES"/>
-                                            </accessibility>
-                                        </tableViewCell>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell4" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" id="7Yr-ZM-zHd" userLabel="cell4">
-                                            <rect key="frame" x="0.0" y="180.5" width="280" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Yr-ZM-zHd" id="9oN-v8-XjN">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </tableViewCellContentView>
-                                            <accessibility key="accessibilityConfiguration" identifier="cell4">
-                                                <bool key="isElement" value="YES"/>
-                                            </accessibility>
-                                        </tableViewCell>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cel5" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell5" id="jtZ-JR-OFi" userLabel="cell5">
-                                            <rect key="frame" x="0.0" y="224" width="280" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jtZ-JR-OFi" id="S7S-3v-7kM">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </tableViewCellContentView>
-                                            <accessibility key="accessibilityConfiguration" identifier="cell5">
-                                                <bool key="isElement" value="YES"/>
-                                            </accessibility>
                                         </tableViewCell>
                                     </prototypes>
                                 </tableView>
@@ -444,6 +394,11 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="wlg-Yp-RZF" firstAttribute="leading" secondItem="Obt-fK-Jsm" secondAttribute="leading" id="5EU-mU-hSr"/>
+                                <constraint firstAttribute="trailing" secondItem="wlg-Yp-RZF" secondAttribute="trailing" id="VQ0-xJ-2ro"/>
+                                <constraint firstItem="FZ9-QJ-8Pg" firstAttribute="top" secondItem="wlg-Yp-RZF" secondAttribute="bottom" constant="10" id="qcS-jQ-f8i"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="5up-t0-6I1"/>
@@ -845,12 +800,6 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
