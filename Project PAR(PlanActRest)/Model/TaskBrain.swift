@@ -25,6 +25,25 @@ struct TaskBrain : Codable{
             print("Task not found!")
         }
     }
+    func taskExists(task : Task) -> Bool{
+        for t in tasks {
+            if t.name == task.name {
+                return true
+            }
+        }
+        return false
+    }
+    func getIndex(task : Task) -> Int {
+        //returns -1 if invalid
+        var index = 0
+        for t in tasks {
+            if t.name == task.name {
+                return index
+            }
+            index += 1
+        }
+        return -1
+    }
     enum CodingKeys: String, CodingKey {
             case tasks
     }

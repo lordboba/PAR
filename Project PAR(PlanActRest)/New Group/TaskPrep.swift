@@ -171,6 +171,10 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             error = "Empty task name!"
             errorMsg.text = error
             animateIn(desiredView: errorView)
+        } else if taskBrain.taskExists(task: Task(name: name!, time: Int(time!)!)){
+            error = "Task already exists!"
+            errorMsg.text = error
+            animateIn(desiredView: errorView)
         } else {
             if !isEdit {
                 let temp = Task(name:name!, time:Int(time!)!)
