@@ -111,6 +111,42 @@ class GoalSetting: UIViewController {
             setButton(taskButton: chooseTaskTwo,taskDex: 1)
         }*/
     }
+    
+    @IBOutlet var tipView: UIView!
+    @IBOutlet var tipText: UILabel!
+    var tips = ["eat salad", "eat pizza"]
+    @IBAction func exitFromTip(_ sender: Any) {
+        animateOut(desiredView: tipView)
+    }
+    @IBAction func suggestTips(_ sender: Any) {
+        //pops up the tips
+        animateIn(desiredView: tipView)
+        tipText.text = tips.randomElement()
+    }
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
     /*
     @IBOutlet var menu1: UIMenu!
     @IBAction func chooseTaskOne(_ sender: Any) {
