@@ -272,7 +272,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         UIView.animate(withDuration: 0.3, animations: {
             
-            desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
             desiredView.alpha = 1
             
         })
