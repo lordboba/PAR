@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "97C96F69-B88D-4D1D-B844-48E8C647F057"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C36D3B0B-B265-4F66-BD34-D9B0FFCBB341"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/BreakTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "BreakTimer"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95258D5A-43D8-4676-94F6-FE25D2CF5E63"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/BreakTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "BreakTimer"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E65B1C2-0C08-403B-ADD7-53542F93D5A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/BreakTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "BreakTimer"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A705D54-9725-461D-9FFB-D5C119402943"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/BreakTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "BreakTimer"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/FocusTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "FocusTimer"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - cb801c1eba9ba30a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.timerLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - 847ebfeb2660f1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.timerLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - 53b57bc7f6420a0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.timerLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - a075f645372fddfe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.timerLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - f5aa7c8844ea2ca7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Project_PAR_PlanActRest_.FocusTimer"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "2454CEBF-A5A7-4BF9-8936-656039A28676 - 49f590b6f68c7268"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.FocusTimer.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Project_PAR_PlanActRest_.FocusTimer&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/FocusTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "512">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D575DD69-C256-4944-B0D3-74161BF81831"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/BreakTimer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

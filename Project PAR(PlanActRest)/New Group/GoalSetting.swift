@@ -37,21 +37,27 @@ class GoalSetting: UIViewController {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FocusTimer") as! FocusTimer
         vc.focusPeriod = focusPeriod
+        UserDefaults.standard
+            .set(chosenTasks, forKey: "CHOSEN_TASKS")
+        UserDefaults.standard
+            .set(chosenTaskDex, forKey: "CHOSEN_TASK_DEX")
+        /*
+        do {
+            //let tempData = try JSONEncoder().encode(chosenTasks)
+            UserDefaults.standard
+                .set(chosenTasks, forKey: "CHOSEN_TASKS")
+            print("default set!")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
+        do {
+            //let tempData = try JSONEncoder().encode(chosenTaskDex)
+            UserDefaults.standard
+                .set(chosenTaskDex, forKey: "CHOSEN_TASK_DEX")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }*/
         self.navigationController?.pushViewController(vc, animated: true)
-        do {
-            let tempData = try JSONEncoder().encode(chosenTasks)
-            UserDefaults.standard
-                .set(tempData, forKey: "CHOSEN_TASKS")
-        } catch let error {
-            print("Error encoding: \(error)")
-        }
-        do {
-            let tempData = try JSONEncoder().encode(chosenTaskDex)
-            UserDefaults.standard
-                .set(tempData, forKey: "CHOSEN_TASK_DEX")
-        } catch let error {
-            print("Error encoding: \(error)")
-        }
 
     }
     var chosenTasks = ["reallynothinghereatall", "reallynothinghereatall", "reallynothinghereatall"]

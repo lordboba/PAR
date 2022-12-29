@@ -17,11 +17,49 @@ class FocusTimer: UIViewController {
     let userDefaults = UserDefaults.standard
     let endKey = "ENDKEY"
     let startKey = "STARTKEY"
-
+    var chosenTasks : [String] = []
+    //var chosenTaskDex : [Int] = []
+    @IBOutlet var goalOne: UILabel!
+    @IBOutlet var goalTwo: UILabel!
+    @IBOutlet var goalThree: UILabel!
+    @IBOutlet var endSession: UIButton!
     @IBOutlet var timerLabel: UILabel!
     //let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
         super.viewDidLoad()
+        //make goals show up
+        chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
+        //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
+        var dex = 0
+        print(chosenTasks)
+        for a in chosenTasks {
+            if a == "reallynothinghereatall" {
+                chosenTasks[dex] = "N/A"
+            }
+            dex += 1
+        }
+        print(chosenTasks[2])
+        goalOne.text = "1. \(chosenTasks[0])"
+        goalTwo.text = "2. \(chosenTasks[1])"
+        goalThree.text = "3. \(chosenTasks[2])"
+
+        /*
+        do {
+            if let data = UserDefaults.standard.data(forKey: "CHOSEN_TASKS") {
+                let taskTemp = try JSONDecoder().decode([String](), from: data)
+                print(taskTemp)
+                taskBrain = taskTemp
+                for _ in 0...taskBrain.tasks.count {
+                    selected.append(false)
+                }
+               
+                
+                
+            }
+        } catch let error {
+            print("Error decoding: \(error)")
+        }*/
+        //prepare timer
         counter = focusPeriod * 60
         let startDate = Date()
         endTime = startDate + TimeInterval(Double(counter))
@@ -55,7 +93,7 @@ class FocusTimer: UIViewController {
             counter = 0
             updateLabel()
             timer.invalidate()
-            
+            endSession.setTitle("Finish Session", for: .normal)
         }
     }
     func updateLabel() {
