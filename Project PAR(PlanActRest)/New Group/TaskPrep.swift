@@ -138,6 +138,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func addNewTasks(_ sender: Any) {
         //animateIn(desiredView: blurView)
         animateIn(desiredView: popUpView)
+        theTaskLabel.text = "Tasks"
         tableView.delegate = self
         tableView.dataSource = self
         //self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell1")
@@ -146,13 +147,83 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //vc.view.addSubview(tableView)
     }
     @IBAction func exitPopUp(_ sender: Any) {
+        isEdit = false
+        self.tableView.reloadData()
         animateOut(desiredView: popUpView)
     }
+    @IBOutlet var theTaskLabel: UILabel!
+    var error = ""
+    var isEdit = false
+    var editedRow = 0
+    @IBOutlet var errorView: UIView!
+    @IBOutlet var errorMsg: UILabel!
+    @IBOutlet var taskTime: UITextField!
+    @IBOutlet var taskName: UITextField!
+    @IBOutlet var enterTaskView: UIView!
+    @IBAction func finishButton(_ sender: Any) {
+        let name = taskName.text
+        let time = taskTime.text
+        if time?.isInt == false {
+            error = "Time not valid!"
+            errorMsg.text = error
+            animateIn(desiredView: errorView)
+        } else if name == "" {
+            error = "Empty task name!"
+            errorMsg.text = error
+            animateIn(desiredView: errorView)
+        } else {
+            if !isEdit {
+                let temp = Task(name:name!, time:Int(time!)!)
+                taskBrain.addTask(task: temp)
+            } else {
+                let temp = Task(name:name!, time:Int(time!)!)
+                taskBrain.tasks[editedRow] = temp
+                isEdit = false
+                
+            }
+            
+            self.tableView.reloadData()
+
+        }
+        
+        taskTime.text = ""
+        taskName.text = ""
+        animateOut(desiredView: enterTaskView)
+    }
     
+    @IBAction func editButton(_ sender: Any) {
+        theTaskLabel.text = "Choose a task to edit"
+        isEdit = true
+        self.tableView.reloadData()
+
+    }
+    @IBAction func exitFromError(_ sender: Any) {
+        animateOut(desiredView: errorView)
+    }
+    @IBAction func cancelButton(_ sender: Any) {
+        if !isEdit {
+            taskTime.text = ""
+            taskName.text = ""
+        }
+        
+        isEdit = false
+        self.tableView.reloadData()
+        animateOut(desiredView: enterTaskView)
+    }
+    func setRed() -> UIColor{
+        let hex:UInt64 = 0xFD8A8A
+        let r = (hex & 0xff0000) >> 16
+        let g = (hex & 0xff00) >> 8
+        let b = hex & 0xff
+        return UIColor(red: CGFloat(r) / 256.0, green: CGFloat(g) / 256.0, blue: CGFloat(b) / 256.0, alpha: 1)
+    }
     @IBAction func addTaskToList(_ sender: Any) {
-        let temp = Task(name:"temporary", time:10)
-        taskBrain.addTask(task: temp)
-        print(taskBrain)
+        animateIn(desiredView: enterTaskView)
+        
+        
+        //let temp = Task(name:"temporary", time:10)
+        //taskBrain.addTask(task: temp)
+        //print(taskBrain)
         self.tableView.reloadData()
         //self.refresher.endRefreshing()
         //tableView.delegate = self
@@ -166,8 +237,18 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         //blurView.bounds = self.view.bounds
         //storyboard?.instantiateViewController(withIdentifier: "TaskPrep")
-
+        isEdit = false
         popUpView.bounds = CGRect(x: 0, y: 0, width: popUpView.bounds.width, height: popUpView.bounds.height)
+        
+        let temp = UserDefaults.standard.data(forKey: "taskBrain")
+        do {let bob = try JSONDecoder().decode(TaskBrain.self, from: temp!)
+            taskBrain = bob
+            print(bob)
+            
+        } catch let error {
+            print("Error decoding: \(error)")
+
+        }
         //tableView.delegate = self
         //tableView.dataSource = self
         //tableView.bounds = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height)
@@ -213,19 +294,39 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
      
      */
-    @IBAction func addTask(_ sender: Any) {
-        
-    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isEdit {
+            editedRow = indexPath.row
+            print(editedRow)
+            animateIn(desiredView: enterTaskView)
+            taskTime.text = String(taskBrain.tasks[editedRow].time)
+            taskName.text = taskBrain.tasks[editedRow].name
+            
+        }
         print("row tapped")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskBrain.tasks.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
-        cell.textLabel?.text = taskBrain.tasks[indexPath.row].name
-        print("yo")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
+        cell.nameLabel.text = taskBrain.tasks[indexPath.row].name
+        cell.timeLabel.text = "\(taskBrain.tasks[indexPath.row].time) min"
+        
+        if isEdit == true {
+            theTaskLabel.text = "Choose a task to edit"
+            cell.contentView.backgroundColor = setRed()
+            print("editing")
+
+        } else {
+            theTaskLabel.text = "Tasks"
+            cell.contentView.backgroundColor = UIColor.white
+            
+        }
+        //print("yo")
         return cell
     }
     //this part transfers the focus period to the next screen
@@ -234,9 +335,23 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalSetting") as! GoalSetting
         //print(time)
         vc.focusPeriod = Int(time!)!
-        print(vc.focusPeriod)
+        //print(vc.focusPeriod)
+        do {
+            let tempData = try JSONEncoder().encode(taskBrain)
+            UserDefaults.standard
+                .set(tempData, forKey: "taskBrain")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
+
+        
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
-
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
+}

@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct TaskBrain {
-    var tasks : [Task] = [Task(name:"Wash the dishes", time:15), Task(name:"wash clothes", time:20)]
+struct TaskBrain : Codable{
+    var tasks : [Task] = []
     mutating func addTask(task : Task) {
         tasks.append(task)
     }
@@ -25,5 +25,7 @@ struct TaskBrain {
             print("Task not found!")
         }
     }
-    
+    enum CodingKeys: String, CodingKey {
+            case tasks
+    }
 }

@@ -31,7 +31,7 @@ class FocusTimer: UIViewController {
         content.title = "Timer"
         content.body = "Your focus session is over!"
         content.sound = UNNotificationSound(named:UNNotificationSoundName("xp_ring.mp3"))
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: endTime!), repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: endTime!), repeats: true)
         print(endTime!)
         let request = UNNotificationRequest(identifier: "id_focusTimer", content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (err) in
@@ -50,11 +50,10 @@ class FocusTimer: UIViewController {
         let start = userDefaults.object(forKey: startKey) as! Date
         let diff = Int(Date().timeIntervalSince(start))
         counter = 60 * focusPeriod - diff
-        if counter > 0 {
-            //print("\(counter) seconds.")
-            //counter -= 1
+        updateLabel()
+        if counter <= 0 {
+            counter = 0
             updateLabel()
-        } else if counter <= 0 {
             timer.invalidate()
             
         }

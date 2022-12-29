@@ -13,6 +13,7 @@
 		0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E692953D0FF00908FB7 /* FocusTimer.swift */; };
 		0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E6B2953D82E00908FB7 /* GoalSetting.swift */; };
 		0D885E6E295CCFD300908FB7 /* xp_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */; };
+		0D885E70295D0D8E00908FB7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */; };
 		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
@@ -49,6 +50,7 @@
 		0D885E692953D0FF00908FB7 /* FocusTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimer.swift; sourceTree = "<group>"; };
 		0D885E6B2953D82E00908FB7 /* GoalSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSetting.swift; sourceTree = "<group>"; };
 		0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = xp_ring.mp3; path = ../../../Downloads/xp_ring.mp3; sourceTree = "<group>"; };
+		0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DAC7E2AA294FF19400E0740C /* Project PAR(PlanActRest).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project PAR(PlanActRest).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2AD294FF19400E0740C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				0D885E65295390EB00908FB7 /* Task.swift */,
 				0D885E67295392B100908FB7 /* TaskBrain.swift */,
+				0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */,
 				0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */,
 				0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */,
+				0D885E70295D0D8E00908FB7 /* CustomTableViewCell.swift in Sources */,
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
 				DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */,
 				0D885E66295390EB00908FB7 /* Task.swift in Sources */,

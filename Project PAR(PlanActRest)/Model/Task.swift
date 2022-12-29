@@ -6,9 +6,12 @@
 //
 
 import Foundation
-struct Task {
+struct Task : Codable{
     //name of task and time in minutes
     var name = "";
     var time = 0;
-    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case time = "time"
+    }
 }
