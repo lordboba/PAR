@@ -939,8 +939,8 @@
                     <navigationItem key="navigationItem" id="QzI-Ch-j83"/>
                     <connections>
                         <outlet property="chooseTaskOne" destination="Hvf-iz-NIS" id="bDJ-GK-JOz"/>
-                        <outlet property="chooseTaskThree" destination="kvb-ns-GYB" id="iuQ-yX-OnH"/>
-                        <outlet property="chooseTaskTwo" destination="LLn-wc-anA" id="Nlp-a0-QD2"/>
+                        <outlet property="chooseTaskThree" destination="LLn-wc-anA" id="88k-Wy-3kf"/>
+                        <outlet property="chooseTaskTwo" destination="kvb-ns-GYB" id="p8e-Lf-fpw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOW-Ca-kb4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
