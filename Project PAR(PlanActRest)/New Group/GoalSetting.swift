@@ -13,6 +13,10 @@ class GoalSetting: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let steven = userDefaults.string(forKey: "User_Quote")
+        if steven != nil {
+            userQuote.text = steven
+        }
         do {
             if let data = UserDefaults.standard.data(forKey: "taskBrain") {
                 let taskTemp = try JSONDecoder().decode(TaskBrain.self, from: data)
@@ -41,6 +45,7 @@ class GoalSetting: UIViewController {
             .set(chosenTasks, forKey: "CHOSEN_TASKS")
         UserDefaults.standard
             .set(chosenTaskDex, forKey: "CHOSEN_TASK_DEX")
+        UserDefaults.standard.set(userQuote.text, forKey: "User_Quote")
         /*
         do {
             //let tempData = try JSONEncoder().encode(chosenTasks)
@@ -114,14 +119,14 @@ class GoalSetting: UIViewController {
     
     @IBOutlet var tipView: UIView!
     @IBOutlet var tipText: UILabel!
-    var tips = ["eat salad", "eat pizza"]
+    //var tips = ["eat salad", "eat pizza"]
     @IBAction func exitFromTip(_ sender: Any) {
         animateOut(desiredView: tipView)
     }
     @IBAction func suggestTips(_ sender: Any) {
         //pops up the tips
         animateIn(desiredView: tipView)
-        tipText.text = tips.randomElement()
+        //tipText.text = tips.randomElement()
     }
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!
@@ -147,6 +152,8 @@ class GoalSetting: UIViewController {
             desiredView.removeFromSuperview()
         })
     }
+    
+    @IBOutlet weak var userQuote: UITextField!
     /*
     @IBOutlet var menu1: UIMenu!
     @IBAction func chooseTaskOne(_ sender: Any) {

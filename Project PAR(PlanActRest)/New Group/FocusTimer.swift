@@ -24,11 +24,13 @@ class FocusTimer: UIViewController {
     @IBOutlet var goalThree: UILabel!
     @IBOutlet var endSession: UIButton!
     @IBOutlet var timerLabel: UILabel!
+    @IBOutlet weak var quoteLabel: UILabel!
     //let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
         super.viewDidLoad()
         //make goals show up
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
+        quoteLabel.text = userDefaults.string(forKey: "User_Quote")
         //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
         var dex = 0
         print(chosenTasks)

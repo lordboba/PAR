@@ -146,10 +146,12 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //let vc = UIViewController()
         //vc.view.addSubview(tableView)
     }
+    @IBOutlet weak var savedTasks: UILabel!
     @IBAction func exitPopUp(_ sender: Any) {
         isEdit = false
         self.tableView.reloadData()
         animateOut(desiredView: popUpView)
+        savedTasks.text = "Tasks saved!"
     }
     @IBOutlet var theTaskLabel: UILabel!
     var error = ""
