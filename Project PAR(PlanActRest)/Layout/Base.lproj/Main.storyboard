@@ -630,10 +630,10 @@
             </objects>
             <point key="canvasLocation" x="4405.7971014492759" y="182.8125"/>
         </scene>
-        <!--View Controller-->
+        <!--Reflection-->
         <scene sceneID="7fw-HM-Lpp">
             <objects>
-                <viewController id="5mo-fF-Ggp" sceneMemberID="viewController">
+                <viewController id="5mo-fF-Ggp" customClass="Reflection" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYS-jo-zhB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -643,6 +643,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="?"/>
+                                <connections>
+                                    <action selector="showTips:" destination="5mo-fF-Ggp" eventType="touchUpInside" id="OQz-WK-YFm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tips to Improve Productivity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7Q-ul-SsT">
                                 <rect key="frame" x="118" y="623" width="213" height="21"/>
@@ -657,6 +660,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Move On to Break"/>
                                 <connections>
+                                    <action selector="toBreak:" destination="5mo-fF-Ggp" eventType="touchUpInside" id="bTY-Bm-jO2"/>
                                     <segue destination="g8n-Mk-Yt1" kind="show" id="eNu-ES-Acc"/>
                                 </connections>
                             </button>
@@ -698,10 +702,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="KwN-DH-Ja9"/>
+                    <connections>
+                        <outlet property="sliderResults" destination="zYs-0n-feO" id="e79-qc-hx7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7x9-Qp-W7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5495.652173913044" y="206.91964285714286"/>
+            <point key="canvasLocation" x="5500" y="207"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HGd-Qz-OW2">
