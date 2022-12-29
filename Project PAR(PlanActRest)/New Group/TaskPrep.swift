@@ -245,13 +245,15 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         popUpView.bounds = CGRect(x: 0, y: 0, width: popUpView.bounds.width, height: popUpView.bounds.height)
         
         let temp = UserDefaults.standard.data(forKey: "taskBrain")
-        do {let bob = try JSONDecoder().decode(TaskBrain.self, from: temp!)
-            taskBrain = bob
-            print(bob)
+        if temp != nil {
+            do {let bob = try JSONDecoder().decode(TaskBrain.self, from: temp!)
+                taskBrain = bob
+                print(bob)
             
-        } catch let error {
-            print("Error decoding: \(error)")
-
+            } catch let error {
+                print("Error decoding: \(error)")
+            
+            }
         }
         //tableView.delegate = self
         //tableView.dataSource = self
