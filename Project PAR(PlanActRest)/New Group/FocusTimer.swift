@@ -109,7 +109,10 @@ class FocusTimer: UIViewController {
     }
     @IBAction func nextScreen(_ sender: Any) {
         timer.invalidate()
-        
+        let start = userDefaults.object(forKey: startKey) as! Date
+        let diff = Int(Date().timeIntervalSince(start))
+        let actualLength = min(focusPeriod * 60, diff)
+        UserDefaults.standard.set(actualLength, forKey: "ACTUAL_FOCUS_TIME")
     }
     /*
     // MARK: - Navigation
