@@ -18,12 +18,13 @@ class BreakTimer: UIViewController {
     let userDefaults = UserDefaults.standard
     let endKey = "ENDKEY"
     let startKey = "STARTKEY"
-
+    
     
     @IBOutlet var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
         //breakPeriod (min), counter (seconds left)
         counter = breakPeriod * 60
         //exact time start timer
@@ -49,7 +50,7 @@ class BreakTimer: UIViewController {
         //print("hi")
         // Do any additional setup after loading the view.
         //updates every 1s
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(BreakTimer.updateCounter)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: (#selector(BreakTimer.updateCounter)), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     @objc func updateCounter() {

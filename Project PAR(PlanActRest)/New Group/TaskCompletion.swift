@@ -21,7 +21,8 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         congratsText.text = "You were focused for \(minFocus) min. Take your well deserved break!"
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
-        
+        chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
+
         //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
         var dex = 0
         //print(chosenTasks)
@@ -87,6 +88,51 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBOutlet var oneSwitch: UISwitch!
+    @IBOutlet var twoSwitch: UISwitch!
+    @IBOutlet var threeSwitch: UISwitch!
+    var taskBrain = TaskBrain()
+
+    @IBAction func startBreak(_ sender: Any) {
+        userDefaults.set(Int(breakMin.text!), forKey: "BREAK_TIME")
+        let temp = UserDefaults.standard.data(forKey: "taskBrain")
+        if temp != nil {
+            do {let bob = try JSONDecoder().decode(TaskBrain.self, from: temp!)
+                taskBrain = bob
+                //print(bob)
+            
+            } catch let error {
+                print("Error decoding: \(error)")
+            
+            }
+        }
+        if oneSwitch.isOn && chosenTaskDex[0] != -1 {
+            taskBrain.tasks[chosenTaskDex[0]].name = "thistaskhasbeencompletedyesithas"
+        }
+        if twoSwitch.isOn && chosenTaskDex[1] != -1 {
+            taskBrain.tasks[chosenTaskDex[1]].name = "thistaskhasbeencompletedyesithas"
+        }
+        if threeSwitch.isOn && chosenTaskDex[2] != -1 {
+            taskBrain.tasks[chosenTaskDex[1]].name = "thistaskhasbeencompletedyesithas"
+        }
+        //var dex = 0
+        for t in taskBrain.tasks {
+            if t.name == "thistaskhasbeencompletedyesithas" {
+                taskBrain.removeTask(task: t)
+            }
+        }
+        do {
+            let tempData = try JSONEncoder().encode(taskBrain)
+            UserDefaults.standard
+                .set(tempData, forKey: "taskBrain")
+            //print(tempData)
+            //print("almost done ish")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
+        //store and save task completon data to database
+        
+    }
     /*
     // MARK: - Navigation
 

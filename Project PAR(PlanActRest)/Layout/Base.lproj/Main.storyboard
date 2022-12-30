@@ -860,7 +860,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LL-hj-TmV">
-                                <rect key="frame" x="140" y="697" width="130" height="47"/>
+                                <rect key="frame" x="140" y="696" width="130" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Start Break!">
@@ -871,6 +871,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="startBreak:" destination="g8n-Mk-Yt1" eventType="touchUpInside" id="j8W-3K-a5U"/>
                                     <segue destination="3pM-0y-pUU" kind="show" id="Djb-05-HBj"/>
                                 </connections>
                             </button>
@@ -884,9 +885,12 @@
                     <connections>
                         <outlet property="breakMin" destination="Eht-o0-A24" id="dgd-v6-INy"/>
                         <outlet property="congratsText" destination="jKg-4O-Ukq" id="3wN-Kd-0BM"/>
+                        <outlet property="oneSwitch" destination="ct0-q9-Hqc" id="ewD-QU-PdP"/>
                         <outlet property="taskOne" destination="LHV-nx-o9G" id="HEk-v5-d4L"/>
                         <outlet property="taskThree" destination="7vQ-8e-FAh" id="ec0-F3-eVC"/>
                         <outlet property="taskTwo" destination="zoq-ow-Qem" id="Khr-Md-itj"/>
+                        <outlet property="threeSwitch" destination="8Rg-ip-HwC" id="60f-BR-Pnx"/>
+                        <outlet property="twoSwitch" destination="uDY-sN-kax" id="PQX-mL-pDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1b-GO-R80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
