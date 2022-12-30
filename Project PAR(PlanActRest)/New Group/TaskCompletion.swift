@@ -97,9 +97,10 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let startKey = "STARTKEY"
     var counter = 0
     @IBAction func startBreak(_ sender: Any) {
-        userDefaults.set(Int(breakMin.text!), forKey: "BREAK_TIME")
+        let timeBreak = Int(breakMin.text!)
+        userDefaults.set(timeBreak, forKey: "BREAK_TIME")
         
-        counter = Int(breakMin.text!)! * 60
+        counter = timeBreak! * 60
         let startDate = Date()
         endTime = startDate + TimeInterval(Double(counter))
         userDefaults.set(endTime, forKey: endKey)

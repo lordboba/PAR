@@ -114,6 +114,7 @@ class FocusTimer: UIViewController {
         let diff = Int(Date().timeIntervalSince(start))
         let actualLength = min(focusPeriod * 60, diff)
         UserDefaults.standard.set(actualLength, forKey: "ACTUAL_FOCUS_TIME")
+        //add diff/60 to the total coins that the user has
     }
     /*
     // MARK: - Navigation

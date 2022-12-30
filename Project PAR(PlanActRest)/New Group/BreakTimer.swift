@@ -30,7 +30,8 @@ class BreakTimer: UIViewController {
         //exact time start timer
         let startDate = Date()
         //when start timer + seconds left = when end timer
-        
+        let coins = userDefaults.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
+        earnedCoins.text = "You earned \(coins) coins!"
         endTime = userDefaults.object(forKey: endKey) as? Date
         
         let content = UNMutableNotificationContent()
