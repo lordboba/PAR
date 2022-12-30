@@ -21,7 +21,7 @@ class BreakTimer: UIViewController {
     
     
     @IBOutlet var timerLabel: UILabel!
-    
+    @IBOutlet var earnedCoins: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
@@ -30,9 +30,9 @@ class BreakTimer: UIViewController {
         //exact time start timer
         let startDate = Date()
         //when start timer + seconds left = when end timer
-        endTime = startDate + TimeInterval(Double(counter))
-        userDefaults.set(endTime, forKey: endKey)
-        userDefaults.set(startDate, forKey: startKey)
+        
+        endTime = userDefaults.object(forKey: endKey) as? Date
+        
         let content = UNMutableNotificationContent()
         content.title = "Timer"
         content.body = "Your break session is over!"
@@ -50,7 +50,7 @@ class BreakTimer: UIViewController {
         //print("hi")
         // Do any additional setup after loading the view.
         //updates every 1s
-        timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: (#selector(BreakTimer.updateCounter)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(BreakTimer.updateCounter)), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
     @objc func updateCounter() {
@@ -81,7 +81,8 @@ class BreakTimer: UIViewController {
         
     }
     /*
-    // MARK: - Navigation
+     
+     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

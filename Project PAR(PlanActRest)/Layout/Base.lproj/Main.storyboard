@@ -1143,6 +1143,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5td-f0-hNu"/>
                     <connections>
+                        <outlet property="earnedCoins" destination="b9F-xU-gly" id="Wgs-yS-MoL"/>
                         <outlet property="timerLabel" destination="b7d-8f-eco" id="4x7-Al-ME4"/>
                     </connections>
                 </viewController>

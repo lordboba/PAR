@@ -29,6 +29,7 @@ class FocusTimer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //make goals show up
+        let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
         quoteLabel.text = userDefaults.string(forKey: "User_Quote")
         //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!

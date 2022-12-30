@@ -92,9 +92,18 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var twoSwitch: UISwitch!
     @IBOutlet var threeSwitch: UISwitch!
     var taskBrain = TaskBrain()
-
+    var endTime:Date?
+    let endKey = "ENDKEY"
+    let startKey = "STARTKEY"
+    var counter = 0
     @IBAction func startBreak(_ sender: Any) {
         userDefaults.set(Int(breakMin.text!), forKey: "BREAK_TIME")
+        
+        counter = Int(breakMin.text!)! * 60
+        let startDate = Date()
+        endTime = startDate + TimeInterval(Double(counter))
+        userDefaults.set(endTime, forKey: endKey)
+        userDefaults.set(startDate, forKey: startKey)
         let temp = UserDefaults.standard.data(forKey: "taskBrain")
         if temp != nil {
             do {let bob = try JSONDecoder().decode(TaskBrain.self, from: temp!)
@@ -130,6 +139,13 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         } catch let error {
             print("Error encoding: \(error)")
         }
+        //resets the array
+        var chosenTasks = ["reallynothinghereatall", "reallynothinghereatall", "reallynothinghereatall"]
+        var chosenTaskDex = [-1, -1, -1]
+        UserDefaults.standard
+            .set(chosenTasks, forKey: "CHOSEN_TASKS")
+        UserDefaults.standard
+            .set(chosenTaskDex, forKey: "CHOSEN_TASK_DEX")
         //store and save task completon data to database
         
     }
