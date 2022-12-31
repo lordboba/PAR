@@ -95,6 +95,7 @@ class FocusTimer: UIViewController {
         if counter <= 0 {
             counter = 0
             updateLabel()
+            playSound()
             timer.invalidate()
             endSession.setTitle("Finish Session", for: .normal)
         }
@@ -115,6 +116,27 @@ class FocusTimer: UIViewController {
         let actualLength = min(focusPeriod * 60, diff)
         UserDefaults.standard.set(actualLength, forKey: "ACTUAL_FOCUS_TIME")
         //add diff/60 to the total coins that the user has
+    }
+    func playSound() {
+        guard let url = Bundle.main.url(forResource: "xp_ring", withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            /* iOS 10 and earlier require the following line:
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     /*
     // MARK: - Navigation

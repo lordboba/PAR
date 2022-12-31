@@ -1,15 +1,16 @@
 //
-//  BreakTimer.swift
+//  Shop.swift
 //  Project PAR(PlanActRest)
 //
-//  Created by Emma Shen on 12/29/22.
+//  Created by Tyler Xiao on 12/31/22.
 //
 
 import UIKit
 import AVFoundation
 import UserNotifications
-
-class BreakTimer: UIViewController {
+class Shop: UIViewController {
+    var coinCount = 600
+    @IBOutlet var coinLabel: UILabel!
     var timer = Timer()
     var player: AVAudioPlayer!
     var breakPeriod = 5
@@ -18,22 +19,14 @@ class BreakTimer: UIViewController {
     let userDefaults = UserDefaults.standard
     let endKey = "ENDKEY"
     let startKey = "STARTKEY"
-    
-    
-    @IBOutlet var timerLabel: UILabel!
-    @IBOutlet var earnedCoins: UILabel!
+    @IBOutlet var breakTimer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        coinLabel.text = String(coinCount)
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
-        //breakPeriod (min), counter (seconds left)
-        counter = breakPeriod * 60
-        //exact time start timer
-        //let startDate = Date()
-        //when start timer + seconds left = when end timer
-        let coins = userDefaults.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
-        earnedCoins.text = "You earned \(coins) coins!"
+        // Do any additional setup after loading the view.
         endTime = userDefaults.object(forKey: endKey) as? Date
-        
+
         let content = UNMutableNotificationContent()
         content.title = "Timer"
         content.body = "Your break session is over!"
@@ -51,8 +44,7 @@ class BreakTimer: UIViewController {
         //print("hi")
         // Do any additional setup after loading the view.
         //updates every 1s
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(BreakTimer.updateCounter)), userInfo: nil, repeats: true)
-        // Do any additional setup after loading the view.
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(Shop.updateCounter)), userInfo: nil, repeats: true)
     }
     @objc func updateCounter() {
         //let currTime = Date()
@@ -76,11 +68,7 @@ class BreakTimer: UIViewController {
         if sec < 10 {
             extraZero = "0"
         }
-        timerLabel.text = "\(min):\(extraZero)\(sec)"
-    }
-    @IBAction func nextScreen(_ sender: Any) {
-        timer.invalidate()
-        
+        breakTimer.text = "\(min):\(extraZero)\(sec)"
     }
     func playSound() {
         guard let url = Bundle.main.url(forResource: "xp_ring", withExtension: "mp3") else { return }
@@ -104,35 +92,6 @@ class BreakTimer: UIViewController {
         }
     }
     /*
-     
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
-        UNUserNotificationCenter.current().delegate = self.transitioningDelegate as? any UNUserNotificationCenterDelegate
-        return true
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .badge, .sound])
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        //let userInfo = response.notification.request.content.userInfo
-        // Handle notification
-
-        completionHandler()
-    }
-
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -143,10 +102,3 @@ class BreakTimer: UIViewController {
     */
 
 }
-
-
-
-    
-
-    
-    
