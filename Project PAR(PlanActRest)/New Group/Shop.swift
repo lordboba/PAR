@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 import UserNotifications
-class Shop: UIViewController {
+class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var coinCount = 600
     @IBOutlet var coinLabel: UILabel!
     var timer = Timer()
@@ -19,9 +19,15 @@ class Shop: UIViewController {
     let userDefaults = UserDefaults.standard
     let endKey = "ENDKEY"
     let startKey = "STARTKEY"
+    let logos = [UIImage(named: "teamTreesLogo"), UIImage(named: "teamSeasLogo"), UIImage(named: "AAALogo")]
+    let descriptions = ["Plant a tree to save the earth!", "Remove trash from the sea to protect the homes of ocean wildlife!", "Provide sports equipment and educational materials for underserved children to pursue their favorite subject and sport!"]
+    let titles = ["#teamtrees", "#teamseas", "AAA"]
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var breakTimer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         coinLabel.text = String(coinCount)
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
         // Do any additional setup after loading the view.
@@ -90,6 +96,28 @@ class Shop: UIViewController {
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teamTrees", for: indexPath) as! ShopViewCell
+        cell.nameLabel.text = titles[indexPath.row]
+        cell.logo.image = logos[indexPath.row]
+        cell.descLabel.text = descriptions[indexPath.row]
+        cell.learnMore.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+        cell.donateNow.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
+
+        
+        //print("yo")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 170.0
     }
     /*
     // MARK: - Navigation
