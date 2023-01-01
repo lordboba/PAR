@@ -17,17 +17,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeScreen" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Screen1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RES-0w-3kc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-6n-eDE" userLabel="PlanActStart View" colorLabel="IBBuiltInLabel-Purple">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="282"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="274"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PlanActStart!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-Jt-Qep">
-                                                <rect key="frame" x="75.5" y="116" width="263" height="50.5"/>
+                                                <rect key="frame" x="75.5" y="112" width="263" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nth-4V-W3L" userLabel="Start Button View">
-                                        <rect key="frame" x="0.0" y="290" width="414" height="282"/>
+                                        <rect key="frame" x="0.0" y="282" width="414" height="274"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ie-at-0PY">
-                                                <rect key="frame" x="137.5" y="104" width="139.5" height="74"/>
+                                                <rect key="frame" x="137.5" y="100" width="139.5" height="74"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                                     <backgroundConfiguration key="background">
@@ -62,10 +62,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIv-38-IYp" userLabel="Tutorial View ">
-                                        <rect key="frame" x="0.0" y="580" width="414" height="282"/>
+                                        <rect key="frame" x="0.0" y="564" width="414" height="274"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d62-2i-oVM">
-                                                <rect key="frame" x="108" y="104" width="198.5" height="74"/>
+                                                <rect key="frame" x="108" y="100" width="198.5" height="74"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Tutorial">
                                                     <backgroundConfiguration key="background">
@@ -224,12 +224,54 @@
             </objects>
             <point key="canvasLocation" x="8357.971014492754" y="206.91964285714286"/>
         </scene>
+        <!--Intermediate Screen-->
+        <scene sceneID="bFh-dY-jiP">
+            <objects>
+                <viewController restorationIdentifier="IntermediateScreen" storyboardIdentifier="IntermediateScreen" id="mNT-MV-5eC" customClass="IntermediateScreen" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="byQ-xU-c4O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breaktime over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwp-vQ-ZDd">
+                                <rect key="frame" x="69" y="213" width="277" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-5m-ybc">
+                                <rect key="frame" x="136" y="480" width="143" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Continue Focus"/>
+                                <connections>
+                                    <segue destination="dqH-WU-KCE" kind="show" id="G3e-6W-jkj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZQ-vD-tdN">
+                                <rect key="frame" x="154" y="523" width="108" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Main Menu"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="01K-vi-YNS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iMU-BB-kWx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrj-9d-qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9265" y="207"/>
+        </scene>
         <!--Task Prep-->
         <scene sceneID="OMs-zq-3EI">
             <objects>
                 <viewController storyboardIdentifier="TaskPrep" id="dqH-WU-KCE" customClass="TaskPrep" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gjc-si-wA2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-K9-7Gm">
@@ -1178,6 +1220,10 @@
             <point key="canvasLocation" x="7428.985507246377" y="206.91964285714286"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="G3e-6W-jkj"/>
+        <segue reference="01K-vi-YNS"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checklist" catalog="system" width="128" height="107"/>
         <image name="circle.dashed.inset.fill" catalog="system" width="128" height="123"/>

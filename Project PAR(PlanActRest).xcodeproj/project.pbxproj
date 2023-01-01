@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D2EF48D2960C43300D97A63 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EF48C2960C43300D97A63 /* Shop.swift */; };
+		0D2EF48F2960CF2900D97A63 /* IntermediateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */; };
 		0D885E612952BC2000908FB7 /* TaskPrep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E602952BC2000908FB7 /* TaskPrep.swift */; };
 		0D885E66295390EB00908FB7 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E65295390EB00908FB7 /* Task.swift */; };
 		0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E67295392B100908FB7 /* TaskBrain.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0D2EF48C2960C43300D97A63 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntermediateScreen.swift; path = "Project PAR(PlanActRest)/New Group/IntermediateScreen.swift"; sourceTree = SOURCE_ROOT; };
 		0D885E602952BC2000908FB7 /* TaskPrep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskPrep.swift; path = "Project PAR(PlanActRest)/New Group/TaskPrep.swift"; sourceTree = SOURCE_ROOT; };
 		0D885E65295390EB00908FB7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0D885E67295392B100908FB7 /* TaskBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBrain.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		DA9E4AA52951251600016D9C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
+				0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */,
 				0D2EF48C2960C43300D97A63 /* Shop.swift */,
 				0D885E6B2953D82E00908FB7 /* GoalSetting.swift */,
 				DA9E4AA72951277000016D9C /* HomeScreen.swift */,
@@ -323,6 +326,7 @@
 				0D885E612952BC2000908FB7 /* TaskPrep.swift in Sources */,
 				0D885E74295E655000908FB7 /* TaskCompletion.swift in Sources */,
 				DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */,
+				0D2EF48F2960CF2900D97A63 /* IntermediateScreen.swift in Sources */,
 				0D885E72295E496A00908FB7 /* Reflection.swift in Sources */,
 				DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */,
 				0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */,

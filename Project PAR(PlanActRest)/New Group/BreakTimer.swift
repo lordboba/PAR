@@ -66,7 +66,8 @@ class BreakTimer: UIViewController {
             updateLabel()
             playSound()
             timer.invalidate()
-            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "IntermediateScreen") as! IntermediateScreen
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     func updateLabel() {
