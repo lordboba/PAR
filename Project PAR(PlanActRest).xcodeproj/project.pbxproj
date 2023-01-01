@@ -28,6 +28,7 @@
 		DAC7E2C5294FF19700E0740C /* Project_PAR_PlanActRest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2C4294FF19700E0740C /* Project_PAR_PlanActRest_Tests.swift */; };
 		DAC7E2CF294FF19800E0740C /* Project_PAR_PlanActRest_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2CE294FF19800E0740C /* Project_PAR_PlanActRest_UITests.swift */; };
 		DAC7E2D1294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */; };
+		F32240BE2960D1120078FE3D /* ShopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32240BD2960D1120078FE3D /* ShopViewCell.swift */; };
 		F3294D42295E359A00BECF03 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3294D41295E359A00BECF03 /* BreakTimer.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		DAC7E2CA294FF19800E0740C /* Project PAR(PlanActRest)UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project PAR(PlanActRest)UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2CE294FF19800E0740C /* Project_PAR_PlanActRest_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_UITests.swift; sourceTree = "<group>"; };
 		DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F32240BD2960D1120078FE3D /* ShopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewCell.swift; sourceTree = "<group>"; };
 		F3294D41295E359A00BECF03 /* BreakTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				0D885E65295390EB00908FB7 /* Task.swift */,
 				0D885E67295392B100908FB7 /* TaskBrain.swift */,
 				0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */,
+				F32240BD2960D1120078FE3D /* ShopViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
 				0D2EF48D2960C43300D97A63 /* Shop.swift in Sources */,
 				DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */,
+				F32240BE2960D1120078FE3D /* ShopViewCell.swift in Sources */,
 				0D885E66295390EB00908FB7 /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
