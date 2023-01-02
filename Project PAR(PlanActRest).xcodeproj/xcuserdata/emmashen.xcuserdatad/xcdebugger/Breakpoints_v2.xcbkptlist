@@ -190,6 +190,206 @@
             endingLineNumber = "24"
             landmarkName = "BreakTimer"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - 552ee9568efcdec2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.earnedCoins.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - df0b73c3b796b536"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.earnedCoins.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - 43d5ce68ae2b7c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.earnedCoins.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - 292218c03218d26d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.earnedCoins.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - a7ccb66fa3f997e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Project_PAR_PlanActRest_.BreakTimer"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "D575DD69-C256-4944-B0D3-74161BF81831 - 6460372cf5aa07a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.BreakTimer.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Project_PAR_PlanActRest_.BreakTimer&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/BreakTimer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "544">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project PAR(PlanActRest)/New Group/Shop.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "Shop"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 947b6ccda3ff6b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.quantity.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 8c2f005eb135fab5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.quantity.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 70bd15a2054147ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.quantity.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 43efd196ddb43b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.quantity.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 648f42422e73023e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Project_PAR_PlanActRest_.Shop"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1444">
+               </Location>
+               <Location
+                  uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - a93748ab5630f872"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Project_PAR_PlanActRest_.Shop.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Project_PAR_PlanActRest_.Shop&gt;"
+                  moduleName = "Project PAR(PlanActRest)"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emmashen/Documents/Project-PAR-PlanActRest/Project%20PAR(PlanActRest)/New%20Group/Shop.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "1420">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

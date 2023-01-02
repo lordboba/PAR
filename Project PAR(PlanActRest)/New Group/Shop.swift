@@ -12,6 +12,8 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var coinCount = 600
     @IBOutlet var coinLabel: UILabel!
     var timer = Timer()
+    var quantityInt = 1
+    var subtractCoinsInt = 0
     var player: AVAudioPlayer!
     var breakPeriod = 5
     var counter = 0
@@ -102,6 +104,63 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return titles.count
     }
     
+    @IBAction func donateNow(_ sender: Any) {
+        animateIn(desiredView: donateView)
+        orgName.text = titles[Int((sender as AnyObject).tag)]
+        orgLogo.image = logos[Int((sender as AnyObject).tag)]
+        coinInventory.text = String(coinCount)
+        quantity.text = String(quantityInt)
+        subtractCoinsInt = 150
+        priceCoins.text = "\(subtractCoinsInt) coins"
+                
+    }
+    
+    
+    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var orgName: UILabel!
+    @IBOutlet var donateView: UIView!
+    @IBOutlet weak var coinInventory: UILabel!
+    @IBOutlet weak var orgLogo: UIImageView!
+    @IBAction func subtractCoins(_ sender: Any) {
+        if quantityInt > 1 {
+            quantityInt -= 1
+            subtractCoinsInt = quantityInt * 150
+            quantity.text = String(quantityInt)
+            priceCoins.text = "\(subtractCoinsInt) coins"
+        }
+
+    }
+    @IBAction func cancelButton(_ sender: Any) {
+        animateOut(desiredView: donateView)
+    }
+    
+    @IBAction func addCoins(_ sender: Any) {
+        quantityInt += 1
+        subtractCoinsInt = quantityInt * 150
+        quantity.text = String(quantityInt)
+        priceCoins.text = "\(subtractCoinsInt) coins"
+    }
+    
+    @IBOutlet weak var errorMsg: UILabel!
+    @IBOutlet var errorView: UIView!
+    @IBAction func confirmButton(_ sender: Any) {
+        if subtractCoinsInt > coinCount {
+            animateIn(desiredView: errorView)
+            
+        } else {
+            coinCount -= subtractCoinsInt
+            coinLabel.text = String(coinCount)
+            animateOut(desiredView: donateView)
+            quantityInt = 1
+            //update database
+        }
+    }
+  
+    @IBAction func doneError(_ sender: Any) {
+        animateOut(desiredView: errorView)
+    }
+    @IBOutlet weak var priceCoins: UILabel!
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamTrees", for: indexPath) as! ShopViewCell
@@ -110,11 +169,12 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.descLabel.text = descriptions[indexPath.row]
         cell.learnMore.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
         cell.donateNow.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14.0)
-
-        
+        cell.tag = indexPath.row
+        cell.donateNow.tag = indexPath.row
         //print("yo")
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170.0
@@ -128,5 +188,28 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+        })
+        
+    }
+    func animateOut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
 
 }
