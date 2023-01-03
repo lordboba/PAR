@@ -15,7 +15,7 @@ class Reflection: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBOutlet var sliderResults: UISlider!
-    
+    let userDefaults = UserDefaults.standard
     @IBOutlet var tipView: UIView!
     @IBOutlet var tipText: UILabel!
     var tips = ["If you are feeling overwhelmed, focus on one task at a time! You got this!", "Eat the rainbow! Vegetables and fruits keep your body healthy and your mind sharp.", "Make a to-do-list in the morning. Clear your head and get ready to tackle what the day brings!", "Exercise at least 30 minutes everyday! Here are some easy ways to get started: take a walk around the neighborhood, swim at the beach, play your favorite sport with your friends.", "In the mood for some fun games to exercise your brain? Try these board games: Catan, Apple to Apples, Scrabble, Monopoly, and Chess.", "Eat for the environment. You can fight climate change by eating less packaged foods, animal meats, and growing your own food!", "Feeling tired and unmotivated? A good 8 hours of sleep every night can ensure an energized and fresh mind and body in the morning!.", "Getting distracted by noise around you? Consider changing your work space to somewhere more quiet. For example, a secluded room or the library."]
@@ -53,6 +53,46 @@ class Reflection: UIViewController {
     }
     @IBAction func toBreak(_ sender: Any) {
         //save reflection results to database/statistics
+        let temp = userDefaults.string(forKey: "USER_ID")
+        
+    }
+    func decodeAPI(){
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        let json: [String:Any] = ["collection": "testing_data","database": "test","dataSource": "PlanActRest","filter":["id":"63b3989bc71263a54342e3a5"],"projection":["id":1,"coins":1,"donations":1,"tasks":1,"sessions":1]]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        
+            let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            
+            let decoder = JSONDecoder()
+            //print(data!)
+            if let data = data{
+                do{
+                    var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    
+                    let string = String(data: data, encoding: .utf8)
+                    //let decoded = try decoder.decode(User.self,from: data)
+                    //print(jsonResult["document"]!)
+                    //print(type(of:result))
+                    /*
+                    let tasks = try decoder.decode([User].self, from: data)
+                    tasks.forEach{ i in
+                        print(i.userId)
+                    }*/
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+
     }
     /*
     // MARK: - Navigation

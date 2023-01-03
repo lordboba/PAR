@@ -61,6 +61,7 @@
 		0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0D885E71295E496A00908FB7 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		0D885E73295E655000908FB7 /* TaskCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletion.swift; sourceTree = "<group>"; };
+		0DF625902963EA4D00E51968 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = SOURCE_ROOT; };
 		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DAC7E2AA294FF19400E0740C /* Project PAR(PlanActRest).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project PAR(PlanActRest).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2AD294FF19400E0740C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 				0D885E692953D0FF00908FB7 /* FocusTimer.swift */,
 				F3294D41295E359A00BECF03 /* BreakTimer.swift */,
 				0D885E71295E496A00908FB7 /* Reflection.swift */,
+				0DF625902963EA4D00E51968 /* Config.xcconfig */,
 				0D885E73295E655000908FB7 /* TaskCompletion.swift */,
 			);
 			path = "New Group";
