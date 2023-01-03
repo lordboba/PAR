@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import UserNotifications
+  
 class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var coinCount = 600
     @IBOutlet var coinLabel: UILabel!
@@ -150,12 +151,55 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             coinCount -= subtractCoinsInt
             coinLabel.text = String(coinCount)
-            animateOut(desiredView: donateView)
             quantityInt = 1
+            animateOut(desiredView: donateView)
+            confetti()
             //update database
         }
     }
-  
+    var confettiTimer = Timer()
+    
+    let sublayer =  CAEmitterLayer()
+    private func confetti() {
+        
+        sublayer.emitterPosition = CGPoint(
+            x: view.center.x,
+            y: -100
+        )
+        //sublayer.beginTime = CACurrentMediaTime()
+        let colors: [UIColor] = [
+            .systemRed,
+            .systemBlue,
+            .systemOrange,
+            .systemGreen,
+            .systemPink,
+            .systemYellow,
+            .systemPurple
+        ]
+        sublayer.birthRate = 1
+        let cells: [CAEmitterCell] = colors.compactMap {
+            let cell = CAEmitterCell()
+            cell.beginTime = 0.1
+            cell.scale = 0.2
+            cell.emissionRange = .pi * 2
+            cell.lifetime = 3
+            cell.birthRate = 100
+            cell.velocity = 150
+            cell.color = $0.cgColor
+            cell.spin = 0.1
+            cell.contents = UIImage(named: "confetti")!.cgImage
+            return cell
+        }
+        
+        sublayer.emitterCells = cells
+        view.layer.addSublayer(sublayer)
+
+        confettiTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: (#selector(Shop.updateConfetti)), userInfo: nil, repeats: false)
+    }
+    @objc func updateConfetti() {
+        sublayer.birthRate = 0
+        //sublayer.layer.actions = [NSDictionary dictionaryWithObject:[NSNull null] forKey:@"content"];
+    }
     @IBAction func doneError(_ sender: Any) {
         animateOut(desiredView: errorView)
     }

@@ -10,6 +10,7 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
 
 }

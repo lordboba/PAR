@@ -152,6 +152,13 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         self.tableView.reloadData()
         animateOut(desiredView: popUpView)
         savedTasks.text = "Tasks saved!"
+        do {
+            let tempData = try JSONEncoder().encode(taskBrain)
+            UserDefaults.standard
+                .set(tempData, forKey: "taskBrain")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
     }
     @IBOutlet var theTaskLabel: UILabel!
     var error = ""
@@ -224,6 +231,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return UIColor(red: CGFloat(r) / 256.0, green: CGFloat(g) / 256.0, blue: CGFloat(b) / 256.0, alpha: 1)
     }
     @IBAction func addTaskToList(_ sender: Any) {
+        isEdit = false
         animateIn(desiredView: enterTaskView)
         
         
@@ -318,21 +326,31 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return taskBrain.tasks.count
     }
     
+    @IBAction func minusButton(_ sender: Any) {
+        taskBrain.removeTask(task: taskBrain.tasks[(sender as AnyObject).tag])
+        self.tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
         cell.nameLabel.text = taskBrain.tasks[indexPath.row].name
         cell.timeLabel.text = "\(taskBrain.tasks[indexPath.row].time) min"
-        
+        cell.minusButton.tag = indexPath.row
         if isEdit == true {
             theTaskLabel.text = "Choose a task to edit"
             cell.contentView.backgroundColor = setRed()
             print("editing")
+            cell.minusButton.setTitle("-", for: .normal)
+            cell.minusButton.tintColor = UIColor(red: 0.7, green: 0, blue: 0, alpha: 1.0)
+            
+            
 
         } else {
             theTaskLabel.text = "Tasks"
             cell.contentView.backgroundColor = UIColor.white
-            
+            cell.minusButton.setTitle("", for: .normal)
+            cell.minusButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         }
         //print("yo")
         return cell
