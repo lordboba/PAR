@@ -54,13 +54,18 @@ class Reflection: UIViewController {
     @IBAction func toBreak(_ sender: Any) {
         //save reflection results to database/statistics
         let temp = userDefaults.string(forKey: "USER_ID")
-        
+        if temp == nil {
+            //createNewUser()
+        } else {
+            
+        }
     }
-    func decodeAPI(){
-        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+    /*
+    func createNewUser() {
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/insertOne") else{return}
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
-        let json: [String:Any] = ["collection": "testing_data","database": "test","dataSource": "PlanActRest","filter":["id":"63b3989bc71263a54342e3a5"],"projection":["id":1,"coins":1,"donations":1,"tasks":1,"sessions":1]]
+        let json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","document":["id":"","coins":0,"donations":[],"tasks":[],"sessions":[]],"editing":true]
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         request.httpBody = jsonData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -77,7 +82,68 @@ class Reflection: UIViewController {
                 do{
                     var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                     
-                    let string = String(data: data, encoding: .utf8)
+                  
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        //creates the data structure we want
+        task.resume()
+        userPartTwo()
+    }
+    func userPartTwo() {
+        //gets the data structure and modifies it to how we want it to be
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        let json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["editing":true]]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        
+            let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            
+            let decoder = JSONDecoder()
+            //print(data!)
+            if let data = data{
+                do{
+                    var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    
+                  
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        //update the existing one
+    }
+    func getUser(the_id: String){
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        let json: [String:Any] = ["collection": "testing_data","database": "test","dataSource": "PlanActRest","filter":["id":the_id],"projection":["id":1,"coins":1,"donations":1,"tasks":1,"sessions":1]]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        
+            let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            
+            let decoder = JSONDecoder()
+            //print(data!)
+            if let data = data{
+                do{
+                    var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    
+                    //let string = String(data: data, encoding: .utf8)
                     //let decoded = try decoder.decode(User.self,from: data)
                     //print(jsonResult["document"]!)
                     //print(type(of:result))
@@ -94,6 +160,7 @@ class Reflection: UIViewController {
         task.resume()
 
     }
+     */
     /*
     // MARK: - Navigation
 

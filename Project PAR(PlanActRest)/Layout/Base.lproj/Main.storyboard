@@ -933,6 +933,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="toBreak:" destination="5mo-fF-Ggp" eventType="touchUpInside" id="pMR-GP-RBu"/>
                                     <segue destination="g8n-Mk-Yt1" kind="show" id="sCv-AF-ETA"/>
                                 </connections>
                             </button>
