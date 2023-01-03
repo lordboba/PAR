@@ -35,7 +35,7 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
         // Do any additional setup after loading the view.
         endTime = userDefaults.object(forKey: endKey) as? Date
-
+        //nothing
         let content = UNMutableNotificationContent()
         content.title = "Timer"
         content.body = "Your break session is over!"
