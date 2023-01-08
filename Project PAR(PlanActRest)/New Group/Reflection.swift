@@ -208,13 +208,13 @@ class Reflection: UIViewController {
                     let data_result = jsonResult as! Dictionary<String,Any>
                     
                     //print(data_result)
-                    var id_var = data_result["document"] as! Dictionary<String,Any>
+                    //var id_var = data_result["document"] as! Dictionary<String,Any>
                     
-                    print(id_var)
-                    if steve {
-                        self.userDefaults.set(id_var["_id"], forKey: "USER_ID")
-                        id_var["id"] = id_var["_id"]
-                    }
+                    //print(id_var)
+                    //if steve {
+                    //    self.userDefaults.set(id_var["_id"], forKey: "USER_ID")
+                    //    id_var["id"] = id_var["_id"]
+                    //}
                     
                 }catch{
                     print(error)

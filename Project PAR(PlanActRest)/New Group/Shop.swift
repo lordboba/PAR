@@ -29,6 +29,8 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var breakTimer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         tableView.delegate = self
         tableView.dataSource = self
         coinLabel.text = String(coinCount)
@@ -255,5 +257,46 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
             desiredView.removeFromSuperview()
         })
     }
+    
+    var textList = ["Welcome to the shop!","This in your in-game coin inventory","This is your current coin inventory. We convert them into real US dollars where you can make a real change in the world!", "Pick your cause. Press learn more to redirect to the nonprofit's actual website and once you are ready...donate now!", "Go back to enjoy the rest of your break!"]
+    var i = 0
+    var x_pos = [270, 170, 170, 170, 170]
+    var y_pos = [120, 220, 330, 330, 330]
 
+    
+    @IBOutlet weak var nextTip: UIButton!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 4 {
+            i+=1
+            bubbleText.text = textList[i]
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
+        if i == 4 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBOutlet var bubbleView: UIView!
+    
+    
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    
 }
