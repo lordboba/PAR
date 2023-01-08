@@ -24,6 +24,8 @@ class BreakTimer: UIViewController {
     @IBOutlet var earnedCoins: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
         //breakPeriod (min), counter (seconds left)
         counter = breakPeriod * 60
@@ -130,7 +132,57 @@ class BreakTimer: UIViewController {
 
         completionHandler()
     }
+    
+    
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBOutlet weak var nextTip: UIButton!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 1 {
+            i+=1
+            bubbleText.text = textList[i]
+            //print("yo()mom")
 
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        //print("yo()mom")
+
+        if i == 1 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+    var textList = ["Well done! Each of your productivity minutes are converted to 1 in-game coin 🪙","Spend your coins at the shop 🛒"]
+    var i = 0
+    var x_pos = [280, 150]
+    var y_pos = [210, 580]
+
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
     
 
     /*
