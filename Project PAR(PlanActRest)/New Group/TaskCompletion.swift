@@ -38,6 +38,8 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         taskThree.text = "3. \(chosenTasks[2])"
         
         super.viewDidLoad()
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         
         // Do any additional setup after loading the view.
     }
@@ -150,6 +152,59 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         //store and save task completon data to database
         
     }
+    
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBOutlet weak var nextTip: UIButton!
+    @IBAction func nextButton(_ sender: Any) {
+        //print("yo")
+        if i < 2 {
+            i+=1
+            bubbleText.text = textList[i]
+            //print("yo()mom")
+
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        //print("yo()mom")
+
+        if i == 2 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+    var textList = ["You were focused for so long! Check off any tasks you completed! ","Choose your break time. 5-15 minutes is a good range","Woohoo! Press this button!"]
+    var i = 0
+    var x_pos = [280, 120, 170]
+    var y_pos = [180, 460, 640]
+
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
+    
+    
     /*
     // MARK: - Navigation
 

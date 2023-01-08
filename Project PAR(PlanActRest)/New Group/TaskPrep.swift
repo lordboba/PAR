@@ -248,8 +248,9 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //blurView.bounds = self.view.bounds
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
+        //blurView.bounds = self.view.bounds170
         //storyboard?.instantiateViewController(withIdentifier: "TaskPrep")
         isEdit = false
         popUpView.bounds = CGRect(x: 0, y: 0, width: popUpView.bounds.width, height: popUpView.bounds.height)
@@ -289,6 +290,57 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
     }
     func animateOut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
+    
+    var textList = ["Step 1 towards your productivity session is planning!","Select the ⏰ you have to finish your tasks!","What are your immediate tasks? ➕ them to your list!", "How long do you want to focus for? 25-65 min is a good range", "Perfect! You are now ready to start setting goals ✅"]
+    var i = 0
+    var x_pos = [270, 170, 170, 170, 170]
+    var y_pos = [120, 220, 330, 500, 620]
+
+    
+    @IBOutlet weak var nextTip: UIButton!
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBOutlet weak var bubbleImage: UIImageView!
+    @IBOutlet var bubbleView: UIView!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 4 {
+            i+=1
+            bubbleText.text = textList[i]
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
+        if i == 4 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+   
+    
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             desiredView.alpha = 0

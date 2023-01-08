@@ -11,7 +11,7 @@ class HomeScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateIn(desiredView: welcomePop)
+        animateIn(desiredView: welcomePop, x: 170, y: 280)
         let hex:UInt64 = 0xA0E4CB
         let r = (hex & 0xff0000) >> 16
         let g = (hex & 0xff00) >> 8
@@ -37,13 +37,14 @@ class HomeScreen: UIViewController {
         animateOut(desiredView: welcomePop)
     }
     
-    func animateIn(desiredView: UIView) {
+    func animateIn(desiredView: UIView, x: Int, y: Int) {
         let backgroundView = self.view!
         backgroundView.addSubview(desiredView)
         
         desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         desiredView.alpha = 0
-        desiredView.center = backgroundView.center
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
         
         UIView.animate(withDuration: 0.3, animations: {
             
