@@ -13,6 +13,8 @@ class GoalSetting: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         let steven = userDefaults.string(forKey: "User_Quote")
         if steven != nil {
             userQuote.text = steven
@@ -144,6 +146,7 @@ class GoalSetting: UIViewController {
         })
         
     }
+    
     func animateOut(desiredView: UIView) {
         UIView.animate(withDuration: 0.3, animations: {
             desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
@@ -152,6 +155,58 @@ class GoalSetting: UIViewController {
             desiredView.removeFromSuperview()
         })
     }
+    
+    var textList = ["Step 2 is goal setting!🎯","Rank your top 3️⃣ tasks","Who is your role model? How would they encourage you?", "Follow this checklist. Very important‼️", "You are all set! Time to get some work done💪"]
+    var i = 0
+    var x_pos = [270, 280, 170, 170, 170]
+    var y_pos = [110, 220, 470, 595, 680]
+
+    
+    @IBOutlet weak var nextTip: UIButton!
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 4 {
+            i+=1
+            bubbleText.text = textList[i]
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
+        if i == 4 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
+    
+    
+    
+    
     
     @IBOutlet weak var userQuote: UITextField!
     /*

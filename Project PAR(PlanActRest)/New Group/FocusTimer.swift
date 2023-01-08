@@ -28,6 +28,8 @@ class FocusTimer: UIViewController {
     //let notificationCenter = UNUserNotificationCenter.current()
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         //make goals show up
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
@@ -163,5 +165,54 @@ class FocusTimer: UIViewController {
 
         completionHandler()
     }
+    
+    
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet weak var bubbleText: UILabel!
+    @IBOutlet weak var nextTip: UIButton!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 2 {
+            i+=1
+            bubbleText.text = textList[i]
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
+        if i == 2 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+    var textList = ["Step 3 is YOU 🫵 getting that work done 📚","While the ⏳ counts down, refer back to your goals and motivational quote here!","If you happen to finish all 3 of your tasks before the timer ends...press this button!🎉"]
+    var i = 0
+    var x_pos = [280, 270, 170]
+    var y_pos = [225, 580, 680]
 
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
 }
+
+
