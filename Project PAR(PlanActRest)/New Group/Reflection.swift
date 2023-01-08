@@ -174,22 +174,63 @@ class Reflection: UIViewController {
             data, response, error in
                 print("yo mom")
             //retrieve user JSON, edit json, and make updates
-                self.updUser(steve: true)
+            self.getID()
+                
         }
         task.resume()
         //update the existing one
     }
-    func updUser(steve : Bool) {
-        //gets the data structure and modifies it to how we want it to be
+    func getID() {
         guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["editing":true]]
-        if steve == false{
-            let temp = userDefaults.string(forKey: "USER_ID")
-            json = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["id":temp]]
+        print("rizz")
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        print("gru")
+
+            let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            print("brp")
+            let decoder = JSONDecoder()
+            //print(data!)
+            if let data = data{
+                do{
+                    print("dru")
+
+                    var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    let data_result = jsonResult as! Dictionary<String,Any>
+                    
+                    print(data_result)
+                    var id_var = data_result["document"] as! Dictionary<String,Any>
+                    
+                    
+                    self.userDefaults.set(id_var["_id"], forKey: "USER_ID")
+                    
+                    
+                    
+                }catch{
+                    print(error)
+                }
+            }
+                self.updUser(steve: true)
         }
+        task.resume()
+    }
+    func updUser(steve : Bool) {
+        //gets the data structure and modifies it to how we want it to be
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/updateOne") else{return}
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        let temp = userDefaults.string(forKey: "USER_ID")!
+        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["_id":["$oid":temp]], "update":["$set":["editing":false],"$push":["sessions":["$each":dataUpdate.sessions]]]]
         
+        print(json)
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         request.httpBody = jsonData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -206,15 +247,12 @@ class Reflection: UIViewController {
                 do{
                     var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                     let data_result = jsonResult as! Dictionary<String,Any>
-                    
-                    //print(data_result)
+                    //print()
+                    print(data_result)
                     //var id_var = data_result["document"] as! Dictionary<String,Any>
                     
                     //print(id_var)
-                    //if steve {
-                    //    self.userDefaults.set(id_var["_id"], forKey: "USER_ID")
-                    //    id_var["id"] = id_var["_id"]
-                    //}
+                    
                     
                 }catch{
                     print(error)
