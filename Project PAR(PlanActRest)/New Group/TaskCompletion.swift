@@ -141,8 +141,8 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             print("Error encoding: \(error)")
         }
         //resets the array
-        var chosenTasks = ["reallynothinghereatall", "reallynothinghereatall", "reallynothinghereatall"]
-        var chosenTaskDex = [-1, -1, -1]
+        let chosenTasks = ["reallynothinghereatall", "reallynothinghereatall", "reallynothinghereatall"]
+        let chosenTaskDex = [-1, -1, -1]
         UserDefaults.standard
             .set(chosenTasks, forKey: "CHOSEN_TASKS")
         UserDefaults.standard

@@ -14,6 +14,8 @@ class Reflection: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    var dataUpdate = DataUpdate()
+    
     @IBOutlet var sliderResults: UISlider!
     let userDefaults = UserDefaults.standard
     @IBOutlet var tipView: UIView!
@@ -51,22 +53,143 @@ class Reflection: UIViewController {
             desiredView.removeFromSuperview()
         })
     }
+    var errorCheck = false
     @IBAction func toBreak(_ sender: Any) {
         //save reflection results to database/statistics
-        let temp = userDefaults.string(forKey: "USER_ID")
+        //let temp = userDefaults.string(forKey: "USER_ID")
+        let temp = UserDefaults.standard.data(forKey: "dataUpdate")
+        if temp != nil {
+            do {let bob = try JSONDecoder().decode(DataUpdate.self, from: temp!)
+                dataUpdate = bob
+                //print(bob)
+            
+            } catch let error {
+                print("Error decoding: \(error)")
+            
+            }
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
+        let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
+
+        dataUpdate.sessions.append(["time" :"\(minFocus)", "impression" : "\(sliderResults.value)", "date":dateFormatter.string(from: Date())])
+        checkConnect()
         if temp == nil {
+            let impressVal = sliderResults.value
+            //save stuff to local data
+            
+            
+            //print(dataUpdate)
+            //print(errorCheck)
+            /*
+            var newData = DataUpdate()
+            newData.coins = 6900
+    
+            do {
+                let tempData = try JSONEncoder().encode(newData)
+                UserDefaults.standard
+                    .set(tempData, forKey: "dataUpdate")
+            } catch let error {
+                print("Error encoding: \(error)")
+            }
+            //first, we test the connection to the api, if it fails, then we only upload to local
             //createNewUser()
+            //reset local dataupdate
+            */
         } else {
             
         }
     }
-    /*
+    
     //insertOne, updateOne, findOne
-    func createNewUser() {
+    func checkConnect()  {
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+        var request = URLRequest(url:url)
+        print("bruh")
+        request.httpMethod = "POST"
+        let json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest"]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        
+            let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+            
+           
+                var bob = false
+                if error == nil {
+                    bob = true
+                }
+                self.upload(connects: bob)
+                //self.errorCheck = true
+                //print(error)
+                
+        }
+        print("grass lemon")
+
+        //creates the data structure we want
+        task.resume()
+        //userPartTwo()
+    }
+    func upload(connects : Bool) {
+        do {
+            let tempData = try JSONEncoder().encode(dataUpdate)
+            UserDefaults.standard
+                .set(tempData, forKey: "dataUpdate")
+        } catch let error {
+            print("Error encoding: \(error)")
+        }
+        if connects {
+            let temp = userDefaults.string(forKey: "USER_ID")
+            if temp == nil {
+                //create new user first, then run api call
+                print("dud du ddu")
+
+                newUser()
+            } else {
+                //
+
+                updUser(steve: false)
+            }
+        }
+
+    }
+    func newUser() {
+        //gets the data structure and modifies it to how we want it to be
         guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/insertOne") else{return}
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
-        let json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","document":["id":"","coins":0,"donations":[],"tasks":[],"sessions":[]],"editing":true]
+        let json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","document":["id":"","coins":0,"donations":[],"tasks":[],"sessions":[],"editing":true]]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
+        request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
+        print("chicken")
+        let task = URLSession.shared.dataTask(with: request){
+            data, response, error in
+                print("yo mom")
+            //retrieve user JSON, edit json, and make updates
+                self.updUser(steve: true)
+        }
+        task.resume()
+        //update the existing one
+    }
+    func updUser(steve : Bool) {
+        //gets the data structure and modifies it to how we want it to be
+        guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
+        var request = URLRequest(url:url)
+        request.httpMethod = "POST"
+        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["editing":true]]
+        if steve == false{
+            let temp = userDefaults.string(forKey: "USER_ID")
+            json = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["id":temp]]
+        }
+        
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         request.httpBody = jsonData
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -82,17 +205,26 @@ class Reflection: UIViewController {
             if let data = data{
                 do{
                     var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    let data_result = jsonResult as! Dictionary<String,Any>
                     
-                  
+                    //print(data_result)
+                    var id_var = data_result["document"] as! Dictionary<String,Any>
+                    
+                    print(id_var)
+                    if steve {
+                        self.userDefaults.set(id_var["_id"], forKey: "USER_ID")
+                        id_var["id"] = id_var["_id"]
+                    }
+                    
                 }catch{
                     print(error)
                 }
             }
         }
-        //creates the data structure we want
         task.resume()
-        userPartTwo()
+        //update the existing one
     }
+    /*
     func userPartTwo() {
         //gets the data structure and modifies it to how we want it to be
         guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
