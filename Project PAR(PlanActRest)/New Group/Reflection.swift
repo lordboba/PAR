@@ -71,7 +71,7 @@ class Reflection: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
-
+        dataUpdate.coins += minFocus
         dataUpdate.sessions.append(["time" :"\(minFocus)", "impression" : "\(sliderResults.value)", "date":dateFormatter.string(from: Date())])
         checkConnect()
         if temp == nil {
@@ -228,7 +228,7 @@ class Reflection: UIViewController {
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         let temp = userDefaults.string(forKey: "USER_ID")!
-        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["_id":["$oid":temp]], "update":["$set":["editing":false],"$push":["sessions":["$each":dataUpdate.sessions]]]]
+        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["_id":["$oid":temp]], "update":["$set":["editing":false,"coins":dataUpdate.coins],"$push":["sessions":["$each":dataUpdate.sessions]]]]
         
         print(json)
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
