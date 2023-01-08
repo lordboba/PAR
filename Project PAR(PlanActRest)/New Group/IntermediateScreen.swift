@@ -11,11 +11,29 @@ class IntermediateScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        animateIn(desiredView: bubbleView)
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet weak var bubbleText: UILabel!
+    
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            desiredView.alpha = 1
+            
+        })
+    }
     /*
     // MARK: - Navigation
 
