@@ -18,6 +18,8 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var chosenTaskDex : [Int] = []
     var breakMins = [1,5,10,15]
     override func viewDidLoad() {
+        self.navigationItem.setHidesBackButton(true, animated:true)
+
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         congratsText.text = "You were focused for \(minFocus) min. Take your well deserved break!"
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
