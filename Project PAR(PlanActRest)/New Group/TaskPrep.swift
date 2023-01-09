@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,  UITableViewDelegate, UITableViewDataSource {
+class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,  UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     let hourNums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     let minNums = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]
@@ -250,6 +250,10 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         super.viewDidLoad()
         animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         bubbleText.text = textList[i]
+        
+        taskTime.delegate = self
+        taskName.delegate = self
+
         //blurView.bounds = self.view.bounds170
         //storyboard?.instantiateViewController(withIdentifier: "TaskPrep")
         isEdit = false
@@ -272,7 +276,11 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         // Do any additional setup after loading the view.
     }
-    
+    //textfield fix
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!
         backgroundView.addSubview(desiredView)
