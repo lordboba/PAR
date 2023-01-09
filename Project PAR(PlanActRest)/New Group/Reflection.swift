@@ -315,7 +315,7 @@ class Reflection: UIViewController {
                 if var donate = push["donations"] as? [String:Any] {
                   //print("fewwefwe")
                       donate["$each"] = dataUpdate.donations
-                    push["sessions"] = donate
+                    push["donations"] = donate
                     update["$push"] = push
                     json["update"] = update
                   }
