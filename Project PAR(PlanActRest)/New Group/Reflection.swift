@@ -57,6 +57,15 @@ class Reflection: UIViewController {
     @IBAction func toBreak(_ sender: Any) {
         //save reflection results to database/statistics
         //let temp = userDefaults.string(forKey: "USER_ID")
+        /*
+        do {
+            let tempData = try JSONEncoder().encode(DataUpdate())
+            userDefaults.set(tempData, forKey: "dataUpdate")
+        }catch let error {
+            
+                print("Error encoding: \(error)")
+            
+        }*/
         let temp = UserDefaults.standard.data(forKey: "dataUpdate")
         if temp != nil {
             do {let bob = try JSONDecoder().decode(DataUpdate.self, from: temp!)
@@ -73,7 +82,9 @@ class Reflection: UIViewController {
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         dataUpdate.coins += minFocus
         dataUpdate.sessions.append(["time" :"\(minFocus)", "impression" : "\(sliderResults.value)", "date":dateFormatter.string(from: Date())])
+
         checkConnect()
+        /*
         if temp == nil {
             let impressVal = sliderResults.value
             //save stuff to local data
@@ -98,7 +109,7 @@ class Reflection: UIViewController {
             */
         } else {
             
-        }
+        }*/
     }
     
     //insertOne, updateOne, findOne
@@ -228,8 +239,116 @@ class Reflection: UIViewController {
         var request = URLRequest(url:url)
         request.httpMethod = "POST"
         let temp = userDefaults.string(forKey: "USER_ID")!
-        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["_id":["$oid":temp]], "update":["$set":["editing":false,"coins":dataUpdate.coins],"$push":["sessions":["$each":dataUpdate.sessions]]]]
-        
+        var json: [String:Any] = ["collection": "actual","database": "user_data","dataSource": "PlanActRest","filter":["_id":["$oid":temp]], "update":["$set":["editing":false,"coins":dataUpdate.coins],"$push":["sessions":["$each":""],"donations":["$each":""],"tasks":["$each":""]]]]
+        if dataUpdate.sessions[0].isEmpty {
+            dataUpdate.sessions.removeFirst()
+        }
+        if dataUpdate.tasks[0].isEmpty {
+            dataUpdate.tasks.removeFirst()
+        }
+        if dataUpdate.donations[0].isEmpty {
+            dataUpdate.donations.removeFirst()
+        }
+        if dataUpdate.sessions.count >= 1 {
+            //json["update"]["$push"]["sessions"] = dataUpdate.sessions.removeFirst()
+            //print("tetrault")
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                if var sessions = push["sessions"] as? [String:Any] {
+                  //print("fewwefwe")
+                      sessions["$each"] = dataUpdate.sessions
+                    push["sessions"] = sessions
+                    update["$push"] = push
+                    json["update"] = update
+                  }
+                
+              }
+            }
+        } else {
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                  push.removeValue(forKey: "sessions")
+                    update["$push"] = push
+                    json["update"] = update
+              }
+            }
+        }
+        if dataUpdate.tasks.count >= 1 {
+            //json["update"]["$push"]["sessions"] = dataUpdate.sessions.removeFirst()
+            //print("tetrault")
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                if var letask = push["tasks"] as? [String:Any] {
+                  //print("fewwefwe")
+                      letask["$each"] = dataUpdate.tasks
+                    push["tasks"] = letask
+                    update["$push"] = push
+                    json["update"] = update
+                  }
+                
+              }
+            }
+        } else {
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                  push.removeValue(forKey: "tasks")
+                    update["$push"] = push
+                    json["update"] = update
+              }
+            }
+        }
+        if dataUpdate.donations.count >= 1 {
+            //json["update"]["$push"]["sessions"] = dataUpdate.sessions.removeFirst()
+            //print("tetrault")
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                if var donate = push["donations"] as? [String:Any] {
+                  //print("fewwefwe")
+                      donate["$each"] = dataUpdate.donations
+                    push["sessions"] = donate
+                    update["$push"] = push
+                    json["update"] = update
+                  }
+                
+              }
+            }
+        } else {
+            if var update = json["update"] as? [String:Any] {
+                //print(update)
+              if var push = update["$push"] as? [String:Any] {
+                  //print(push)
+                  push.removeValue(forKey: "donations")
+                    update["$push"] = push
+                    json["update"] = update
+              }
+            }
+        }
+        /*
+        if dataUpdate.sessions.count >= 1 {
+            //json["update"]["$push"]["sessions"] = dataUpdate.sessions.removeFirst()
+            if var update = json["update"] as? [String:Any] {
+              if var push = update["$push"] as? [String:Any] {
+                if var sessions = push["sessions"] as? [String:Any] {
+                  
+                      sessions["$each"] = dataUpdate.sessions
+                    push["sessions"] = sessions
+                    update["$push"] = push
+                    json["update"] = update
+                  }
+                
+              }
+            }
+        }*/
         print(json)
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         request.httpBody = jsonData
@@ -237,17 +356,29 @@ class Reflection: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("*", forHTTPHeaderField: "Access-Control-Request-Headers")
         request.setValue(Bundle.main.infoDictionary?["API_KEY"] as? String, forHTTPHeaderField: "api-key")
-        
+        print("hurb")
             let task = URLSession.shared.dataTask(with: request){
             data, response, error in
-            
-            let decoder = JSONDecoder()
-            //print(data!)
+            //print(response)
             if let data = data{
                 do{
-                    var jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                    let jsonResult: NSDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                     let data_result = jsonResult as! Dictionary<String,Any>
                     //print()
+                    if data_result["modifiedCount"] as! Int == 1 && data_result["matchedCount"] as! Int == 1 {
+                        //reset dataUpdate
+                        self.dataUpdate.donations = [[:]]
+                        self.dataUpdate.tasks = [[:]]
+                        self.dataUpdate.sessions = [[:]]
+                        do {
+                            let tempData = try JSONEncoder().encode(self.dataUpdate)
+                            UserDefaults.standard
+                                .set(tempData, forKey: "dataUpdate")
+                        } catch let error {
+                            print("Error encoding: \(error)")
+                        }
+                        print(self.dataUpdate)
+                    }
                     print(data_result)
                     //var id_var = data_result["document"] as! Dictionary<String,Any>
                     
