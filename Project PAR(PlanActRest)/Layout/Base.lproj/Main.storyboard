@@ -1098,6 +1098,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="KwN-DH-Ja9"/>
                     <connections>
+                        <outlet property="bubbleText" destination="d9e-RB-Ni0" id="Dkb-xQ-Xir"/>
+                        <outlet property="bubbleView" destination="d9e-RB-Ni0" id="bq8-Cx-Gln"/>
+                        <outlet property="nextTip" destination="Y2b-7B-sqf" id="Gfj-Y2-cMi"/>
                         <outlet property="sliderResults" destination="zYs-0n-feO" id="e79-qc-hx7"/>
                         <outlet property="tipText" destination="TKv-OO-Yj9" id="nOV-Pm-CaO"/>
                         <outlet property="tipView" destination="atJ-Va-6uf" id="h03-Is-Q0I"/>
@@ -1140,13 +1143,31 @@
                     <color key="backgroundColor" systemColor="systemBlueColor"/>
                 </view>
                 <view contentMode="scaleToFill" id="12V-hG-Vht">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="136"/>
+                    <rect key="frame" x="0.0" y="0.0" width="259" height="174"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble_1" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-CY-09G">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <rect key="frame" x="-30" y="-15" width="318" height="204"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2b-7B-sqf">
+                            <rect key="frame" x="101" y="87" width="56" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Next">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="nextButton:" destination="5mo-fF-Ggp" eventType="touchUpInside" id="VU7-ei-NQp"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9e-RB-Ni0">
+                            <rect key="frame" x="45" y="26" width="172" height="67"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="hrE-4j-ONw"/>
                 </view>

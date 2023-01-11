@@ -10,7 +10,8 @@ import UIKit
 class Reflection: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        bubbleText.text = textList[i]
         self.navigationItem.setHidesBackButton(true, animated:true)
 
         // Do any additional setup after loading the view.
@@ -394,8 +395,59 @@ class Reflection: UIViewController {
         task.resume()
         //update the existing one
     }
+    
+    var textList = ["Step 4 is Reflection! Slide the bar based on how productive you feel your session was","Click on the ? for some useful tips!","Ready to move on? "]
+    var i = 0
+    var x_pos = [270, 280, 170, 170, 170]
+    var y_pos = [110, 220, 470, 595, 680]
+    
+    
+    @IBOutlet weak var bubbleView: UILabel!
+    @IBAction func nextButton(_ sender: Any) {
+        if i < 2 {
+            i+=1
+            bubbleText.text = textList[i]
+            //animateOut(desiredView: bubbleView)
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
+        if i == 2 {
+            nextTip.setTitle("", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var nextTip: UIButton!
+    @IBOutlet weak var bubbleText: UILabel!
+    
+    
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = CGPoint(x: x, y:y)
+        //desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    func animateOutTut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
+    
     /*
-    func userPartTwo() {
+     func userPartTwo() {
         //gets the data structure and modifies it to how we want it to be
         guard let url = URL(string: "https://data.mongodb-api.com/app/data-rmmsc/endpoint/data/v1/action/findOne") else{return}
         var request = URLRequest(url:url)
