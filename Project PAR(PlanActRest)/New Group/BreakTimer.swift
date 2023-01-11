@@ -24,6 +24,8 @@ class BreakTimer: UIViewController {
     @IBOutlet var earnedCoins: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated:true)
+
         animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         bubbleText.text = textList[i]
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")

@@ -7,12 +7,13 @@
 
 import UIKit
 
-class GoalSetting: UIViewController {
+class GoalSetting: UIViewController, UITextFieldDelegate{
     var focusPeriod = 0
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userQuote.delegate = self
         animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         bubbleText.text = textList[i]
         let steven = userDefaults.string(forKey: "User_Quote")
@@ -37,6 +38,10 @@ class GoalSetting: UIViewController {
             print("Error decoding: \(error)")
         }
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     var taskBrain: TaskBrain!
     @IBAction func toFocusPeriod(_ sender: Any) {

@@ -26,10 +26,14 @@ class FocusTimer: UIViewController {
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
     //let notificationCenter = UNUserNotificationCenter.current()
+    //@IBOutlet var navigationItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         bubbleText.text = textList[i]
+        //self.navigationController?.delegate = self
+        self.navigationItem.setHidesBackButton(true, animated:true)
+
         //make goals show up
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!

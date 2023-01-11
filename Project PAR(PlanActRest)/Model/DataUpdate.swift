@@ -8,8 +8,8 @@
 import Foundation
 struct DataUpdate : Codable{
     var coins : Int = 0
-    var donations : [String:String] = [:]
-    var tasks : [String:String] = [:]
+    var donations : [[String:String]] = [[:]]
+    var tasks : [[String:String]] = [[:]]
     var sessions : [[String:String]] = [[:]]
     
 }
