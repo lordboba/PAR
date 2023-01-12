@@ -40,7 +40,10 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         taskThree.text = "3. \(chosenTasks[2])"
         
         super.viewDidLoad()
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         
         // Do any additional setup after loading the view.
@@ -480,9 +483,12 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
         //print("yo()mom")
-
+        if i == 3 {
+            animateOutTut(desiredView: bubbleView)
+        }
         if i == 2 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 3
         }
     }
     

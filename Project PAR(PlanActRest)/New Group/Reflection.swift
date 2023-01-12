@@ -10,7 +10,11 @@ import UIKit
 class Reflection: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad();        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        super.viewDidLoad();
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         self.navigationItem.setHidesBackButton(true, animated:true)
 
@@ -411,9 +415,12 @@ class Reflection: UIViewController {
             //animateOut(desiredView: bubbleView)
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
+        if i == 3 {
+            animateOut(desiredView: bubbleView)
+        }
         if i == 2 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 3
         }
     }
     

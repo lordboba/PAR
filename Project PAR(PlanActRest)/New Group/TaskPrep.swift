@@ -248,7 +248,11 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
+        
         bubbleText.text = textList[i]
         
         taskTime.delegate = self

@@ -14,7 +14,10 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         userQuote.delegate = self
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         let steven = userDefaults.string(forKey: "User_Quote")
         if steven != nil {
@@ -161,7 +164,7 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
         })
     }
     
-    var textList = ["Step 2 is goal setting!🎯","Rank your top 3️⃣ tasks","Who is your role model? How would they encourage you?", "Follow this checklist. Very important‼️", "You are all set! Time to get some work done💪"]
+    var textList = ["Step 2 is goal setting!🎯","Rank your top 3️⃣ tasks","Who is your role model? How would they encourage you?", "Follow this checklist. Very important‼️", "All set! Time to get some work done💪"]
     var i = 0
     var x_pos = [270, 280, 170, 170, 170]
     var y_pos = [110, 220, 470, 595, 680]
@@ -177,9 +180,12 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
             //animateOut(desiredView: bubbleView)
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
+        if i == 5 {
+            animateOut(desiredView: bubbleView)
+        }
         if i == 4 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 5
         }
     }
     

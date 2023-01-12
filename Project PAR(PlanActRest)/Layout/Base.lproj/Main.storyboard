@@ -99,6 +99,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="lru-KX-Zam"/>
                     <connections>
+                        <outlet property="tutChangeTxt" destination="7B4-ZZ-6GP" id="kHd-6p-Ype"/>
+                        <outlet property="tutorialChange" destination="j0h-0x-XCv" id="T3y-Y7-MBK"/>
                         <outlet property="welcomePop" destination="1kL-35-68L" id="7LR-9E-3QM"/>
                     </connections>
                 </viewController>
@@ -134,6 +136,30 @@
                         </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="HHc-g4-lzS"/>
+                </view>
+                <view contentMode="scaleToFill" id="j0h-0x-XCv">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l21-EW-tGd">
+                            <rect key="frame" x="98" y="75" width="46" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Ok"/>
+                            <connections>
+                                <action selector="doneB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="chQ-ef-9pU"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B4-ZZ-6GP">
+                            <rect key="frame" x="16" y="28" width="210" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="ilp-L4-Xj8"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="1566.6666666666667" y="182.8125"/>
@@ -484,21 +510,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrj-9d-qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="GHo-Xr-c6L">
-                    <rect key="frame" x="0.0" y="0.0" width="316" height="208"/>
+                    <rect key="frame" x="0.0" y="0.0" width="316" height="229"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble_1" translatesAutoresizingMaskIntoConstraints="NO" id="FJv-21-8xe">
-                            <rect key="frame" x="-59" y="-40" width="435" height="288"/>
+                            <rect key="frame" x="-69" y="-50" width="455" height="324"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7V-KX-aKD">
-                            <rect key="frame" x="58" y="16" width="219" height="125"/>
+                            <rect key="frame" x="39" y="10" width="238" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">Congrats! You have now completed an entire focus cycle. Here you will be able to pick whether you are ready to move on to the next session, or if you would like to return to the main menu. See you soon!</string>
+                            <string key="text">Congrats! You completed an entire focus cycle. Pick here whether you are ready to move on to the next session, or if you want to return to the main menu. See you soon!</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOh-KX-02Y">
+                            <rect key="frame" x="126" y="123" width="65" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                            <connections>
+                                <action selector="doneButton:" destination="mNT-MV-5eC" eventType="touchUpInside" id="WFy-VO-rO8"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="sq0-g5-foQ"/>
                 </view>
@@ -1320,7 +1355,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEK-bw-hVb">
-                            <rect key="frame" x="94" y="68" width="51" height="29"/>
+                            <rect key="frame" x="77" y="64" width="86" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Next">
@@ -1537,8 +1572,15 @@
                             <rect key="frame" x="-7" y="-8" width="254" height="144"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-Zf-CFT">
+                            <rect key="frame" x="46" y="15" width="143" height="58"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwg-F8-7ae">
-                            <rect key="frame" x="91" y="63" width="53" height="30"/>
+                            <rect key="frame" x="84" y="61" width="66" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Next">
@@ -1549,13 +1591,6 @@
                                 <action selector="nextButton:" destination="Elj-34-GL5" eventType="touchUpInside" id="7vg-wV-lcG"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-Zf-CFT">
-                            <rect key="frame" x="46" y="15" width="143" height="58"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="9yJ-7h-whN"/>
                 </view>
@@ -1657,7 +1692,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3e-6W-jkj"/>
+        <segue reference="6O8-0h-EcQ"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>

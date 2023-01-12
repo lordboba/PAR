@@ -8,10 +8,18 @@
 import UIKit
 
 class HomeScreen: UIViewController {
-
+    let userDefaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateIn(desiredView: welcomePop, x: 170, y: 280)
+        var temp = userDefaults.bool(forKey: "TUTORIAL")
+        if temp == nil {
+            temp = true
+            userDefaults.set(true, forKey: "TUTORIAL")
+        }
+        if temp {
+            animateInTut(desiredView: welcomePop, x: 170, y: 280)
+        }
+        
         let hex:UInt64 = 0xA0E4CB
         let r = (hex & 0xff0000) >> 16
         let g = (hex & 0xff00) >> 8
@@ -24,12 +32,48 @@ class HomeScreen: UIViewController {
     }
     
     
+    @IBOutlet var tutChangeTxt: UILabel!
+    @IBOutlet var tutorialChange: UIView!
     
     @IBAction func TutorialButton(_ sender: Any) {
         print("hi")
+        var temp = userDefaults.bool(forKey: "TUTORIAL")
+        if temp != nil {
+            var text = ""
+            if temp {
+                userDefaults.set(false, forKey: "TUTORIAL")
+                animateOut(desiredView: welcomePop)
+                text = "off!"
+            } else {
+                userDefaults.set(true, forKey: "TUTORIAL")
+                text = "on!"
+
+            }
+            animateIn(desiredView: tutorialChange)
+            tutChangeTxt.text = "Tutorial \(text)"
+        }
+
         //sender.font = "Times New Roman"
     }
-    
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+            
+        })
+        
+    }
+    @IBAction func doneB(_ sender: Any) {
+        animateOut(desiredView: tutorialChange)
+    }
     @IBOutlet var welcomePop: UIView!
     
     
@@ -37,7 +81,7 @@ class HomeScreen: UIViewController {
         animateOut(desiredView: welcomePop)
     }
     
-    func animateIn(desiredView: UIView, x: Int, y: Int) {
+    func animateInTut(desiredView: UIView, x: Int, y: Int) {
         let backgroundView = self.view!
         backgroundView.addSubview(desiredView)
         

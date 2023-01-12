@@ -12,15 +12,28 @@ class IntermediateScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated:true)
-
-        animateIn(desiredView: bubbleView)
-
+        let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateIn(desiredView: bubbleView)
+        }
+        UserDefaults.standard.set(false, forKey: "Tutorial")
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet var bubbleView: UIView!
     @IBOutlet weak var bubbleText: UILabel!
     
+    @IBAction func doneButton(_ sender: Any) {
+        animateOut(desiredView: bubbleView)
+    }
+    func animateOut(desiredView: UIView) {
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
+    }
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!
         backgroundView.addSubview(desiredView)

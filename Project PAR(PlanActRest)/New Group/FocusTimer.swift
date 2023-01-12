@@ -29,7 +29,10 @@ class FocusTimer: UIViewController {
     //@IBOutlet var navigationItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         //self.navigationController?.delegate = self
         self.navigationItem.setHidesBackButton(true, animated:true)
@@ -181,9 +184,12 @@ class FocusTimer: UIViewController {
             //animateOut(desiredView: bubbleView)
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
+        if i == 3 {
+            animateOutTut(desiredView: bubbleView)
+        }
         if i == 2 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 3
         }
     }
     

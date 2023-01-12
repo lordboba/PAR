@@ -26,7 +26,10 @@ class BreakTimer: UIViewController {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated:true)
 
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
         //breakPeriod (min), counter (seconds left)
@@ -149,9 +152,12 @@ class BreakTimer: UIViewController {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
         //print("yo()mom")
-
+        if i == 2 {
+            animateOutTut(desiredView: bubbleView)
+        }
         if i == 1 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 2
         }
     }
     

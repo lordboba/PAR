@@ -44,7 +44,10 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //temporary coins
         //dataUpdate.coins = 600
         coinCount = dataUpdate.coins
-        animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        let tutOn = userDefaults.bool(forKey: "TUTORIAL")
+        if tutOn {
+            animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+        }
         bubbleText.text = textList[i]
         tableView.delegate = self
         tableView.dataSource = self
@@ -579,9 +582,12 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
             //animateOut(desiredView: bubbleView)
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
+        if i == 4 {
+            animateOut(desiredView: bubbleView)
+        }
         if i == 3 {
-            nextTip.setTitle("", for: .normal)
+            nextTip.setTitle("Exit", for: .normal)
+            i = 4
         }
     }
     @IBOutlet weak var bubbleText: UILabel!
