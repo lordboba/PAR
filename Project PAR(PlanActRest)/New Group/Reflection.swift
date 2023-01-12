@@ -402,8 +402,8 @@ class Reflection: UIViewController {
     
     var textList = ["Step 4 is Reflection! Slide the bar based on how productive you feel your session was","Click on the ? for some useful tips!","Ready to move on? "]
     var i = 0
-    var x_pos = [270, 280, 170, 170, 170]
-    var y_pos = [110, 220, 470, 595, 680]
+    var x_pos = [270, 100, 170]
+    var y_pos = [210, 420, 550]
     
     
     @IBOutlet var bubbleView: UIView!
