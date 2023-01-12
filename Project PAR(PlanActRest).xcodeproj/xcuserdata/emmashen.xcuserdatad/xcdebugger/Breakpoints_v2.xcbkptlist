@@ -296,8 +296,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
             endingLineNumber = "121"
-            landmarkName = "Shop"
-            landmarkType = "3">
+            landmarkName = "playSound()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "C69E38D9-F713-4F19-B555-29EC73EEE8D3 - 947b6ccda3ff698"

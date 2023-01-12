@@ -505,7 +505,8 @@
                     </view>
                     <connections>
                         <outlet property="bubbleText" destination="x7V-KX-aKD" id="YhX-Nr-enI"/>
-                        <outlet property="bubbleView" destination="GHo-Xr-c6L" id="0VU-85-afn"/>
+                        <outlet property="bubbleView" destination="GHo-Xr-c6L" id="6dS-pZ-ojp"/>
+                        <outlet property="nextTip" destination="tOh-KX-02Y" id="jk2-iF-48L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrj-9d-qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -517,14 +518,6 @@
                             <rect key="frame" x="-69" y="-50" width="455" height="324"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7V-KX-aKD">
-                            <rect key="frame" x="39" y="10" width="238" height="125"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">Congrats! You completed an entire focus cycle. Pick here whether you are ready to move on to the next session, or if you want to return to the main menu. See you soon!</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOh-KX-02Y">
                             <rect key="frame" x="126" y="123" width="65" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -534,6 +527,14 @@
                                 <action selector="doneButton:" destination="mNT-MV-5eC" eventType="touchUpInside" id="WFy-VO-rO8"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7V-KX-aKD">
+                            <rect key="frame" x="39" y="23" width="238" height="105"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <string key="text">Congrats! You completed an entire focus cycle. Pick here whether you are ready to move on to the next session, or if you want to return to the main menu. See you soon!</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="sq0-g5-foQ"/>
                 </view>
@@ -1692,7 +1693,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6O8-0h-EcQ"/>
+        <segue reference="G3e-6W-jkj"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>
