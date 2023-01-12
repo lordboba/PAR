@@ -402,7 +402,8 @@ class Reflection: UIViewController {
     var y_pos = [110, 220, 470, 595, 680]
     
     
-    @IBOutlet weak var bubbleView: UILabel!
+    @IBOutlet var bubbleView: UIView!
+    
     @IBAction func nextButton(_ sender: Any) {
         if i < 2 {
             i+=1

@@ -333,10 +333,14 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             //animateOut(desiredView: bubbleView)
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
-        if i == 4 {
-            nextTip.setTitle("", for: .normal)
+        if i == 5 {
+            animateOut(desiredView: bubbleView)
         }
+        if i == 4 {
+            nextTip.setTitle("Exit", for: .normal)
+            i = 5
+        }
+        
     }
     
    

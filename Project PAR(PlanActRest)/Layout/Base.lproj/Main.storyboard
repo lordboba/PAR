@@ -1099,7 +1099,7 @@
                     <navigationItem key="navigationItem" id="KwN-DH-Ja9"/>
                     <connections>
                         <outlet property="bubbleText" destination="d9e-RB-Ni0" id="Dkb-xQ-Xir"/>
-                        <outlet property="bubbleView" destination="d9e-RB-Ni0" id="bq8-Cx-Gln"/>
+                        <outlet property="bubbleView" destination="12V-hG-Vht" id="U22-h8-42Q"/>
                         <outlet property="nextTip" destination="Y2b-7B-sqf" id="Gfj-Y2-cMi"/>
                         <outlet property="sliderResults" destination="zYs-0n-feO" id="e79-qc-hx7"/>
                         <outlet property="tipText" destination="TKv-OO-Yj9" id="nOV-Pm-CaO"/>
