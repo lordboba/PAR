@@ -180,7 +180,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             error = "Empty task name!"
             errorMsg.text = error
             animateIn(desiredView: errorView)
-        } else if taskBrain.taskExists(task: Task(name: name!, time: Int(time!)!)){
+        } else if taskBrain.taskExists(task: Task(name: name!, time: Int(time!)!)) && !isEdit{
             error = "Task already exists!"
             errorMsg.text = error
             animateIn(desiredView: errorView)
@@ -198,7 +198,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             self.tableView.reloadData()
 
         }
-        
+        //self.view.addGestureRecognizer(tap)
+
         taskTime.text = ""
         taskName.text = ""
         animateOut(desiredView: enterTaskView)
@@ -207,6 +208,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func editButton(_ sender: Any) {
         theTaskLabel.text = "Choose a task to edit"
         isEdit = true
+        //self.view.removeGestureRecognizer(tap)
+
         self.tableView.reloadData()
 
     }
@@ -233,7 +236,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func addTaskToList(_ sender: Any) {
         isEdit = false
         animateIn(desiredView: enterTaskView)
-        
+        //self.view.addGestureRecognizer(tap)
+
         
         //let temp = Task(name:"temporary", time:10)
         //taskBrain.addTask(task: temp)
@@ -242,6 +246,11 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //self.refresher.endRefreshing()
         //tableView.delegate = self
         //tableView.dataSource = self
+    }
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+
+        //self.view.removeGestureRecognizer(tap)
     }
     @IBOutlet var tableView: UITableView!
     
@@ -252,7 +261,9 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
-        
+        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         bubbleText.text = textList[i]
         
         taskTime.delegate = self
@@ -396,7 +407,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             animateIn(desiredView: enterTaskView)
             taskTime.text = String(taskBrain.tasks[editedRow].time)
             taskName.text = taskBrain.tasks[editedRow].name
-            
+            //self.view.addGestureRecognizer(tap)
+
         }
         print("row tapped")
     }

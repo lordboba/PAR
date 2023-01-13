@@ -25,8 +25,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-6n-eDE" userLabel="PlanActStart View" colorLabel="IBBuiltInLabel-Purple">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="274"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grow &amp; Give " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-Jt-Qep">
-                                                <rect key="frame" x="84" y="112" width="246.5" height="50.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-Jt-Qep">
+                                                <rect key="frame" x="131" y="112" width="152.5" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -504,9 +504,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="bubbleText" destination="x7V-KX-aKD" id="YhX-Nr-enI"/>
                         <outlet property="bubbleView" destination="GHo-Xr-c6L" id="6dS-pZ-ojp"/>
-                        <outlet property="nextTip" destination="tOh-KX-02Y" id="jk2-iF-48L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrj-9d-qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1693,7 +1691,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3e-6W-jkj"/>
+        <segue reference="6O8-0h-EcQ"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>
