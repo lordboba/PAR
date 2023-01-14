@@ -1695,13 +1695,13 @@
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bubble_1" width="664" height="376"/>
+        <image name="bubble_1" width="166" height="94"/>
         <image name="checklist" catalog="system" width="128" height="107"/>
         <image name="circle.dashed.inset.fill" catalog="system" width="128" height="123"/>
-        <image name="frownyface" width="380" height="380"/>
+        <image name="frownyface" width="95" height="95"/>
         <image name="largecircle.fill.circle" catalog="system" width="128" height="123"/>
-        <image name="neutralface" width="360" height="360"/>
-        <image name="smileyface 1" width="356" height="358"/>
+        <image name="neutralface" width="90" height="90"/>
+        <image name="smileyface 1" width="89" height="89.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

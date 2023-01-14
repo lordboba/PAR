@@ -254,7 +254,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     @IBOutlet var tableView: UITableView!
     
-    
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
@@ -262,6 +263,9 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        popUpView.layer.borderWidth = 1
+        view.maximumContentSizeCategory = .medium
+        popUpView.layer.borderColor = UIColor.black.cgColor
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
         bubbleText.text = textList[i]

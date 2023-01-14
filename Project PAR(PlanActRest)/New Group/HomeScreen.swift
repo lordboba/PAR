@@ -9,8 +9,12 @@ import UIKit
 
 class HomeScreen: UIViewController {
     let userDefaults = UserDefaults.standard
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.maximumContentSizeCategory = .medium
+
         var temp = userDefaults.bool(forKey: "TUTORIAL")
         if temp == nil {
             temp = true
