@@ -18,12 +18,15 @@ class BreakTimer: UIViewController {
     let userDefaults = UserDefaults.standard
     let endKey = "ENDKEY"
     let startKey = "STARTKEY"
-    
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var earnedCoins: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.maximumContentSizeCategory = .medium
+
         self.navigationItem.setHidesBackButton(true, animated:true)
 
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")

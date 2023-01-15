@@ -8,9 +8,16 @@
 import UIKit
 
 class IntermediateScreen: UIViewController {
-    
+    var maximumContentSizeCategory: UIContentSizeCategory?
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+
+        //self.view.removeGestureRecognizer(tap)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.maximumContentSizeCategory = .medium
+       
         self.navigationItem.setHidesBackButton(true, animated:true)
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
         if tutOn {
