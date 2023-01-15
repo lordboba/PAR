@@ -8,9 +8,12 @@
 import UIKit
 
 class Reflection: UIViewController {
+    var maximumContentSizeCategory: UIContentSizeCategory?
 
     override func viewDidLoad() {
         super.viewDidLoad();
+        view.maximumContentSizeCategory = .medium
+
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])

@@ -80,6 +80,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         pickerView.delegate = self
         pickerView.tag = 2
         pickerView.selectRow(selectedFocusRow, inComponent: 0, animated: false)
+        //pickerView.maximumContentSizeCategory = .medium
         //print("bruh")
         vc.view.addSubview(pickerView)
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true

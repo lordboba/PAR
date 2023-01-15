@@ -17,8 +17,11 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var chosenTasks : [String] = []
     var chosenTaskDex : [Int] = []
     var breakMins = [1,5,10,15]
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated:true)
+        view.maximumContentSizeCategory = .medium
 
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         congratsText.text = "You were focused for \(minFocus) min. Take your well deserved break!"

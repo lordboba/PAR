@@ -28,8 +28,12 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var breakTimer: UILabel!
     var dataUpdate = DataUpdate()
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.maximumContentSizeCategory = .medium
+
         let temp = UserDefaults.standard.data(forKey: "dataUpdate")
         if temp != nil {
             do {let bob = try JSONDecoder().decode(DataUpdate.self, from: temp!)

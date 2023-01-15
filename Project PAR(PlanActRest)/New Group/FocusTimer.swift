@@ -25,10 +25,14 @@ class FocusTimer: UIViewController {
     @IBOutlet var endSession: UIButton!
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
+    var maximumContentSizeCategory: UIContentSizeCategory?
+
     //let notificationCenter = UNUserNotificationCenter.current()
     //@IBOutlet var navigationItem: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.maximumContentSizeCategory = .medium
+
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
