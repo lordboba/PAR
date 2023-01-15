@@ -87,6 +87,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
         
         let alert = UIAlertController(title: "Select Time", message: "", preferredStyle: .actionSheet)
+        alert.view.maximumContentSizeCategory = .medium
         alert.popoverPresentationController?.sourceView = pickerView
         alert.setValue(vc, forKey: "contentViewController")
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: { (UIAlertAction) in }))
@@ -95,6 +96,9 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             let selectedMin = self.focusMin[self.selectedFocusRow]
             focusTimes.text = "\(selectedMin)"
         }))
+        //print(alert.preferredContentSize)
+        
+        //alert.preferredContentSize = .medium
         self.present(alert, animated: true, completion: nil)
     }
     
