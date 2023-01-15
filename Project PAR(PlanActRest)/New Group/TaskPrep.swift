@@ -261,12 +261,19 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     var maximumContentSizeCategory: UIContentSizeCategory?
 
+    @IBOutlet var container1: UIView!
+    @IBOutlet var container2: UIView!
+    @IBOutlet var container3: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
         }
+        container1.layer.cornerRadius = 25
+        container2.layer.cornerRadius = 25
+        container3.layer.cornerRadius = 25
+
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         popUpView.layer.borderWidth = 1
         view.maximumContentSizeCategory = .medium
