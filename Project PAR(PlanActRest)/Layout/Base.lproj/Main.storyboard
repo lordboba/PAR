@@ -16,17 +16,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeScreen" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Screen1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RES-0w-3kc">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-6n-eDE" userLabel="PlanActStart View" colorLabel="IBBuiltInLabel-Purple">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="274"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="282"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-Jt-Qep">
-                                                <rect key="frame" x="131" y="112" width="152.5" height="50.5"/>
+                                                <rect key="frame" x="131" y="116" width="152.5" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -38,10 +38,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nth-4V-W3L" userLabel="Start Button View">
-                                        <rect key="frame" x="0.0" y="282" width="414" height="274"/>
+                                        <rect key="frame" x="0.0" y="290" width="414" height="282"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ie-at-0PY">
-                                                <rect key="frame" x="137.5" y="100" width="139.5" height="74"/>
+                                                <rect key="frame" x="137.5" y="104" width="139.5" height="74"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                                     <backgroundConfiguration key="background">
@@ -61,10 +61,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIv-38-IYp" userLabel="Tutorial View ">
-                                        <rect key="frame" x="0.0" y="564" width="414" height="274"/>
+                                        <rect key="frame" x="0.0" y="580" width="414" height="282"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d62-2i-oVM">
-                                                <rect key="frame" x="108" y="100" width="198.5" height="74"/>
+                                                <rect key="frame" x="108" y="104" width="198.5" height="74"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Tutorial">
                                                     <backgroundConfiguration key="background">
@@ -544,7 +544,7 @@
             <objects>
                 <viewController storyboardIdentifier="TaskPrep" id="dqH-WU-KCE" customClass="TaskPrep" customModule="Project_PAR_PlanActRest_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gjc-si-wA2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-K9-7Gm">
@@ -1692,7 +1692,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="6O8-0h-EcQ"/>
-        <segue reference="01K-vi-YNS"/>
+        <segue reference="7zK-Qw-dbc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bubble_1" width="166" height="94"/>
