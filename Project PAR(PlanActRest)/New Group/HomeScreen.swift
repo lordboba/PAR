@@ -14,7 +14,7 @@ class HomeScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
-
+        self.logoView.loadGif(name: "animatedlogo")
         var temp = userDefaults.bool(forKey: "TUTORIAL")
         if temp == nil {
             temp = true
@@ -35,6 +35,7 @@ class HomeScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet var logoView: UIImageView!
     
     @IBOutlet var tutChangeTxt: UILabel!
     @IBOutlet var tutorialChange: UIView!
@@ -123,3 +124,4 @@ class HomeScreen: UIViewController {
     */
 
 }
+

@@ -408,7 +408,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
      
      */
-
+   // @IBOutlet var buttonMinus: UIButton!
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEdit {
             editedRow = indexPath.row
@@ -417,7 +418,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             taskTime.text = String(taskBrain.tasks[editedRow].time)
             taskName.text = taskBrain.tasks[editedRow].name
             //self.view.addGestureRecognizer(tap)
-
+            //buttonMinus.layer.cornerRadius = 38
         }
         print("row tapped")
     }
@@ -436,6 +437,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         cell.nameLabel.text = taskBrain.tasks[indexPath.row].name
         cell.timeLabel.text = "\(taskBrain.tasks[indexPath.row].time) min"
         cell.minusButton.tag = indexPath.row
+        cell.minusButton.layer.cornerRadius = 10
         if isEdit == true {
             theTaskLabel.text = "Choose a task to edit"
             cell.contentView.backgroundColor = setRed()
