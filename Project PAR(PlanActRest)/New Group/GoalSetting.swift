@@ -121,6 +121,7 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
             }
             index += 1
         }
+        taskButton.maximumContentSizeCategory = .medium
         taskButton.menu = UIMenu(children : actionArray)
         //taskButton.showsMenuAsPrimaryAction = true
         //taskButton.changesSelectionAsPrimaryAction = true
