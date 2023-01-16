@@ -9,9 +9,16 @@ import UIKit
 
 class Reflection: UIViewController {
     var maximumContentSizeCategory: UIContentSizeCategory?
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
 
+        //self.view.removeGestureRecognizer(tap)
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
+        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         view.maximumContentSizeCategory = .medium
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
