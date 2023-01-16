@@ -720,7 +720,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" title="Change Focus Time"/>
                                                         <connections>
                                                             <action selector="focusTimeChange:" destination="dqH-WU-KCE" eventType="touchUpInside" id="trL-0p-QzL"/>
-                                                            <action selector="timeChange:" destination="dqH-WU-KCE" eventType="touchUpInside" id="SRZ-xz-0fU"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

@@ -77,30 +77,32 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     var toolBar = UIToolbar()
     @IBAction func focusTimeChange(_ sender: Any) {
         toolbarDisappear()
-
+        selectedFocusRow = 0
         //let vc = UIViewController()
         //vc.preferredContentSize = CGSize(width: scWidth, height: scHeight)
         //print(vc.preferredContentSize)
         //vc.tabBarObservedScrollView?.translatesAutoresizingMaskIntoConstraints = false
-        picker2 = UIPickerView(frame:CGRect(x: 0, y: UIScreen.main.bounds.height-scHeight, width: scWidth, height: scHeight))
+        picker2 = UIPickerView.init(frame:CGRect(x: 0, y: UIScreen.main.bounds.height-scHeight, width: scWidth, height: scHeight))
         
         picker2.tag = 2
+        //print(picker2.tag)
         picker2.dataSource = self
         picker2.delegate = self
         self.picker2.reloadAllComponents()
         picker2.backgroundColor = UIColor.lightGray
-        picker2.selectRow(selectedFocusRow, inComponent: 0, animated: false)
+        picker2.selectRow(selectedFocusRow, inComponent: 0, animated: true)
         //picker.translatesAutoresizingMaskIntoConstraints = false
+        //print(picker2.numberOfComponents)
         self.view.addSubview(picker2)
         toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: scHeight, width: scWidth, height: 50))
-        toolBar.items = [UIBarButtonItem.init(title: "Cancel", style: .done, target: self, action: #selector(toolbarDisappear)), UIBarButtonItem.init(title: "Select", style: .done, target: self, action: #selector(changeFocusText))]
+        toolBar.items = [UIBarButtonItem.init(title: "Cancel", style: .done, target: self, action: #selector(toolbarDisappear2)), UIBarButtonItem.init(title: "Select", style: .done, target: self, action: #selector(changeFocusText))]
         self.view.addSubview(toolBar)
         //pickerView.maximumContentSizeCategory = .medium
         //print("bruh")
         //vc.view.addSubview(pickerView)
         //pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
         //pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
-        print("neva gonna give ya")
+       // print("neva gonna give ya")
         /*
         let alert = UIAlertController(title: "Select Time", message: "", preferredStyle: .actionSheet)
         alert.view.maximumContentSizeCategory = .medium
@@ -122,7 +124,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         self.selectedFocusRow = picker2.selectedRow(inComponent: 0)
         let selectedMin = self.focusMin[self.selectedFocusRow]
         focusTimes.text = "\(selectedMin)"
-        toolbarDisappear()
+        print("wth")
+        toolbarDisappear2()
     }
     @objc func changeTimeText() {
         self.selectedRow = picker.selectedRow(inComponent: 0)
@@ -137,6 +140,10 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @objc func toolbarDisappear(){
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
+        //picker2.removeFromSuperview()
+    }
+    @objc func toolbarDisappear2(){
+        toolBar.removeFromSuperview()
         picker2.removeFromSuperview()
     }
     @IBAction func timeChange(_ sender: Any) {
@@ -156,8 +163,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
         */
         toolbarDisappear()
-
-        picker = UIPickerView(frame:CGRect(x: 0, y: UIScreen.main.bounds.height-scHeight, width: scWidth, height: scHeight))
+        selectedFocusRow = 0
+        picker = UIPickerView.init(frame:CGRect(x: 0, y: UIScreen.main.bounds.height-scHeight, width: scWidth, height: scHeight))
         picker.tag = 1
         picker.dataSource = self
         picker.delegate = self
