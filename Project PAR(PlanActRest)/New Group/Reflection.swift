@@ -25,6 +25,7 @@ class Reflection: UIViewController {
     }
     var dataUpdate = DataUpdate()
     
+    @IBOutlet var userFeedback: UITextField!
     @IBOutlet var sliderResults: UISlider!
     let userDefaults = UserDefaults.standard
     @IBOutlet var tipView: UIView!
