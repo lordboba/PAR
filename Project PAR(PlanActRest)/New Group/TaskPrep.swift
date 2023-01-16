@@ -54,7 +54,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return 40
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: scWidth, height: 30))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: scWidth, height: 40))
         switch pickerView.tag {
         case 1:
             if component == 0 {
@@ -75,6 +75,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func focusTimeChange(_ sender: Any) {
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: scWidth, height: scHeight)
+        print(vc.preferredContentSize)
         let pickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: scWidth, height: scHeight))
         pickerView.dataSource = self
         pickerView.delegate = self
@@ -85,7 +86,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         vc.view.addSubview(pickerView)
         pickerView.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor).isActive = true
         pickerView.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor).isActive = true
-        
+        print("neva gonna give ya")
         let alert = UIAlertController(title: "Select Time", message: "", preferredStyle: .actionSheet)
         alert.view.maximumContentSizeCategory = .medium
         alert.popoverPresentationController?.sourceView = pickerView
@@ -99,6 +100,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //print(alert.preferredContentSize)
         
         //alert.preferredContentSize = .medium
+        print("thiawefw")
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -106,8 +108,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: scWidth, height: scHeight)
         let pickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: scWidth, height: scHeight))
-        
-        
+        //
+        //pickerView.autoresizingMask =
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.tag = 1
@@ -134,7 +136,8 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     
-    
+//expr -l objc++ -O -- [[UIWindow keyWindow] _autolayoutTrace]
+
     @IBOutlet var popUpView: UIView!
 
     //this next bit of code handles the add tasks button
