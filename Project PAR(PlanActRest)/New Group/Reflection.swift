@@ -13,7 +13,8 @@ class Reflection: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         view.maximumContentSizeCategory = .medium
-
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
@@ -24,7 +25,20 @@ class Reflection: UIViewController {
         // Do any additional setup after loading the view.
     }
     var dataUpdate = DataUpdate()
-    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y == 0{                       self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y != 0{                       self.view.frame.origin.y += keyboardFrame.height
+        }
+    }
     @IBOutlet var userFeedback: UITextField!
     @IBOutlet var sliderResults: UISlider!
     let userDefaults = UserDefaults.standard
@@ -91,7 +105,7 @@ class Reflection: UIViewController {
         dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
         let minFocus = UserDefaults.standard.integer(forKey: "ACTUAL_FOCUS_TIME") / 60
         dataUpdate.coins += minFocus
-        dataUpdate.sessions.append(["time" :"\(minFocus)", "impression" : "\(sliderResults.value)", "date":dateFormatter.string(from: Date())])
+        dataUpdate.sessions.append(["time" :"\(minFocus)", "impression" : "\(sliderResults.value)", "date":dateFormatter.string(from: Date()),"reflect":userFeedback.text!])
 
         checkConnect()
         /*
