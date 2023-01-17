@@ -36,7 +36,29 @@ class IntermediateScreen: UIViewController {
         animateOut(desiredView: bubbleView)
     }
     
-    
+    @IBAction func outOfSoon(_ sender: Any) {
+        animateOut(desiredView: soonView)
+    }
+    @IBOutlet var soonView: UIView!
+    @IBAction func progressTrack(_ sender: Any) {
+        //track next progress
+        animateIn(desiredView: soonView)
+    }
+    func animateIn(desiredView: UIView) {
+        let backgroundView = self.view!
+        backgroundView.addSubview(desiredView)
+        
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.alpha = 1
+        })
+        
+    }
     func animateInTut(desiredView: UIView, x: Int, y: Int) {
         let backgroundView = self.view!
         backgroundView.addSubview(desiredView)

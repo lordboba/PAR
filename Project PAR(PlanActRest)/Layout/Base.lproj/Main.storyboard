@@ -496,19 +496,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="Fev-Nv-MC1">
-                                <rect key="frame" x="0.0" y="48" width="414" height="766"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break over!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwp-vQ-ZDd">
-                                        <rect key="frame" x="37" y="0.0" width="340.5" height="79"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="154.5" id="dgl-DQ-yWM"/>
-                                        </constraints>
+                                        <rect key="frame" x="37" y="0.0" width="340.5" height="91"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="66"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdf-5m-ybc">
-                                        <rect key="frame" x="100" y="229" width="214.5" height="79"/>
+                                        <rect key="frame" x="100" y="241" width="214.5" height="91"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="repeat" catalog="system" title="Next Cycle">
                                             <backgroundConfiguration key="background" cornerRadius="22">
@@ -521,7 +518,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv8-sK-d3O">
-                                        <rect key="frame" x="33.5" y="458" width="347" height="79"/>
+                                        <rect key="frame" x="33.5" y="482" width="347" height="91"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="chart.line.uptrend.xyaxis" catalog="system" title="Track Your Progress">
                                             <backgroundConfiguration key="background" cornerRadius="25">
@@ -530,9 +527,12 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="progressTrack:" destination="mNT-MV-5eC" eventType="touchUpInside" id="6fL-QW-Fcv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZQ-vD-tdN">
-                                        <rect key="frame" x="112" y="687" width="190.5" height="79"/>
+                                        <rect key="frame" x="112" y="723" width="190.5" height="91"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Main Menu">
                                             <backgroundConfiguration key="background" cornerRadius="20">
@@ -558,6 +558,7 @@
                     </view>
                     <connections>
                         <outlet property="bubbleView" destination="GHo-Xr-c6L" id="6dS-pZ-ojp"/>
+                        <outlet property="soonView" destination="Glv-fk-7Pd" id="osZ-oT-5Rc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrj-9d-qcf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -588,6 +589,30 @@
                         </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="sq0-g5-foQ"/>
+                </view>
+                <view contentMode="scaleToFill" id="Glv-fk-7Pd">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Available Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M99-ad-aJU">
+                            <rect key="frame" x="62" y="19" width="116" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sS-VY-hxC">
+                            <rect key="frame" x="88" y="73" width="65" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                            <connections>
+                                <action selector="outOfSoon:" destination="mNT-MV-5eC" eventType="touchUpInside" id="mCr-Oz-aBq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="a9Y-VV-gSC"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="9263.7681159420299" y="206.91964285714286"/>
@@ -1428,6 +1453,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64.5" id="eLw-WR-pFq"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g89-E0-fa2">
                                         <rect key="frame" x="175" y="788" width="64" height="50"/>
