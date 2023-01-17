@@ -30,8 +30,12 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
         if self.view.frame.origin.y != 0{                       self.view.frame.origin.y += keyboardFrame.height
         }
     }
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.maximumContentSizeCategory = .medium
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -42,6 +46,8 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         bubbleText.text = textList[i]
         let steven = userDefaults.string(forKey: "User_Quote")
@@ -55,6 +61,7 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
                 taskBrain = taskTemp
                 for _ in 0...taskBrain.tasks.count {
                     selected.append(false)
+                    taskToChoose.append(-1)
                 }
                 setButton(taskButton: chooseTaskOne, taskDex: 0)
                 setButton(taskButton: chooseTaskTwo,taskDex: 1)
@@ -103,6 +110,7 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
     var chosenTasks = ["reallynothinghereatall", "reallynothinghereatall", "reallynothinghereatall"]
     var chosenTaskDex = [-1, -1, -1]
     var selected : [Bool] = []
+    var taskToChoose : [Int] = []
     @IBOutlet var chooseTaskOne: UIButton!
     
     @IBOutlet var chooseTaskTwo: UIButton!
@@ -115,11 +123,21 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
         var actionArray : [UIAction] = []
         //print(taskBrain)
         var index = 0
+        //var none = true
         for task in taskBrain.tasks {
-            if !selected[index] {
-                actionArray.append(UIAction(title: "\(task.name)", handler: optionClosure))
-            }
+            actionArray.append(UIAction(title: "\(task.name)", handler: optionClosure))
+            //if !selected[index] {
+            //    none = false
+            //}
             index += 1
+        }
+        //if none {
+        //    taskButton.setTitle("Choose", for: .normal)
+        //}
+        if chosenTaskDex[taskDex] == -1 {
+            taskButton.setTitle("Choose", for: .normal)
+            chosenTasks[taskDex] = "reallynothinghereatall"
+
         }
         taskButton.maximumContentSizeCategory = .medium
         taskButton.menu = UIMenu(children : actionArray)
@@ -128,15 +146,31 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
     }
     func selectedTask(taskButton: UIButton, action: UIAction, taskDex : Int) {
         taskButton.setTitle(action.title, for: .normal)
+        
         let currentlySelectedTask = chosenTaskDex[taskDex]
-        if currentlySelectedTask != -1 {
-            selected[currentlySelectedTask] = false
-        }
         let temp = Task(name: action.title,time:0)
         let selectDex = taskBrain.getIndex(task: temp)
+        //select a task, if we are replacing another one's task or replacing the current task, then remove the other one
+        if currentlySelectedTask != -1 {
+            selected[currentlySelectedTask] = false
+            taskToChoose[currentlySelectedTask] = -1
+        }
+        //replacing other
+        if taskToChoose[selectDex] != -1 {
+            let terp = taskToChoose[selectDex]
+            chosenTaskDex[terp] = -1
+            chosenTasks[taskDex] = "reallynothinghereatall"
+
+        }
+        
         selected[selectDex] = true
         chosenTaskDex[taskDex] = selectDex
         chosenTasks[taskDex] = action.title
+        taskToChoose[selectDex] = taskDex
+        //print(selected)
+        //print(taskToChoose)
+        //print(chosenTaskDex)
+       // print(chosenTasks)
         setButton(taskButton: chooseTaskOne, taskDex: 0)
         setButton(taskButton: chooseTaskTwo,taskDex: 1)
         setButton(taskButton: chooseTaskThree,taskDex: 2)

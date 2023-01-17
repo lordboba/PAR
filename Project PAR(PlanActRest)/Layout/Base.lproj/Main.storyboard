@@ -82,6 +82,7 @@
                     <connections>
                         <outlet property="logoView" destination="r8W-i5-tYn" id="SaR-FJ-wMR"/>
                         <outlet property="tutChangeTxt" destination="7B4-ZZ-6GP" id="kHd-6p-Ype"/>
+                        <outlet property="tutImg" destination="3G5-Rs-Q0n" id="N0I-6b-UEF"/>
                         <outlet property="tutorialChange" destination="j0h-0x-XCv" id="T3y-Y7-MBK"/>
                         <outlet property="welcomePop" destination="1kL-35-68L" id="7LR-9E-3QM"/>
                     </connections>
@@ -2245,7 +2246,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3e-6W-jkj"/>
+        <segue reference="6O8-0h-EcQ"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>

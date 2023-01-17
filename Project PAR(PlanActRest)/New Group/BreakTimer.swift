@@ -20,7 +20,9 @@ class BreakTimer: UIViewController {
     let startKey = "STARTKEY"
     var maximumContentSizeCategory: UIContentSizeCategory?
 
-    
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var earnedCoins: UILabel!
     override func viewDidLoad() {
@@ -32,6 +34,8 @@ class BreakTimer: UIViewController {
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         bubbleText.text = textList[i]
         breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")

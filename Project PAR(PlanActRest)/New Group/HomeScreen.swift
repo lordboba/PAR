@@ -9,11 +9,16 @@ import UIKit
 
 class HomeScreen: UIViewController {
     let userDefaults = UserDefaults.standard
+    @IBOutlet var tutImg: UIImageView!
     var maximumContentSizeCategory: UIContentSizeCategory?
-
+    @objc func nextTut() {
+        animateOut(desiredView: welcomePop)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
+        var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+        welcomePop.addGestureRecognizer(tapTut)
         self.logoView.loadGif(name: "animatedlogo")
         var temp = userDefaults.bool(forKey: "TUTORIAL")
         if temp == nil {

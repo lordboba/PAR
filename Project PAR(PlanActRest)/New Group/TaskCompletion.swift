@@ -18,7 +18,9 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var chosenTaskDex : [Int] = []
     var breakMins = [1,5,10,15]
     var maximumContentSizeCategory: UIContentSizeCategory?
-
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     override func viewDidLoad() {
         self.navigationItem.setHidesBackButton(true, animated:true)
         view.maximumContentSizeCategory = .medium
@@ -47,6 +49,8 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         bubbleText.text = textList[i]
         

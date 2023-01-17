@@ -29,7 +29,9 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var breakTimer: UILabel!
     var dataUpdate = DataUpdate()
     var maximumContentSizeCategory: UIContentSizeCategory?
-
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
@@ -51,6 +53,8 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         bubbleText.text = textList[i]
         tableView.delegate = self

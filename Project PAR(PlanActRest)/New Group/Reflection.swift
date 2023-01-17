@@ -14,6 +14,9 @@ class Reflection: UIViewController {
 
         //self.view.removeGestureRecognizer(tap)
     }
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad();
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -25,6 +28,8 @@ class Reflection: UIViewController {
         let tutOn = userDefaults.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         bubbleText.text = textList[i]
         self.navigationItem.setHidesBackButton(true, animated:true)

@@ -324,15 +324,20 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBOutlet var tableView: UITableView!
     
     var maximumContentSizeCategory: UIContentSizeCategory?
-
+    
     @IBOutlet var container1: UIView!
     @IBOutlet var container2: UIView!
     @IBOutlet var container3: UIView!
+    @objc func nextTut() {
+        nextButton((Any).self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         container1.layer.cornerRadius = 25
         container2.layer.cornerRadius = 25
@@ -411,7 +416,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         })
     }
     
-    var textList = ["Step 1 towards your productivity session is planning!","Select the ⏰ you have to finish your tasks!","What are your immediate tasks? ➕ them to your list!", "How long do you want to focus for? 25-65 min is a good range", "Perfect! You are now ready to start setting goals ✅"]
+    var textList = ["Step 1 for your productivity session is planning!","Select the ⏰ you have to finish your tasks!","What are your immediate tasks? ➕ them to your list!", "How long do you want to focus for? 25-65 min is a good range", "Perfect! You are now ready to start setting goals ✅"]
     var i = 0
     var x_pos = [270, 170, 170, 170, 170]
     var y_pos = [120, 220, 330, 500, 620]

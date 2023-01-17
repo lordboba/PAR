@@ -14,6 +14,9 @@ class IntermediateScreen: UIViewController {
 
         //self.view.removeGestureRecognizer(tap)
     }
+    @objc func nextTut() {
+        animateOut(desiredView: bubbleView)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
@@ -22,6 +25,8 @@ class IntermediateScreen: UIViewController {
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
         if tutOn {
             animateInTut(desiredView: bubbleView, x: x_pos[i], y: y_pos[i])
+            var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextTut))
+            bubbleView.addGestureRecognizer(tapTut)
         }
         UserDefaults.standard.set(false, forKey: "Tutorial")
         // Do any additional setup after loading the view.
