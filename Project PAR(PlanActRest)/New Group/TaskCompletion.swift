@@ -27,6 +27,7 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         congratsText.text = "You were focused for \(minFocus) min. Take your well deserved break!"
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
         chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
+        confetti()
 
         //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
         var dex = 0
@@ -51,6 +52,49 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         // Do any additional setup after loading the view.
     }
+    var confettiTimer = Timer()
+    
+    let sublayer =  CAEmitterLayer()
+    private func confetti() {
+        
+        sublayer.emitterPosition = CGPoint(
+            x: view.center.x,
+            y: -100
+        )
+        //sublayer.beginTime = CACurrentMediaTime()
+        let colors: [UIColor] = [
+            .systemRed,
+            .systemBlue,
+            .systemOrange,
+            .systemGreen,
+            .systemPink,
+            .systemYellow,
+            .systemPurple
+        ]
+        sublayer.birthRate = 1
+        let cells: [CAEmitterCell] = colors.compactMap {
+            let cell = CAEmitterCell()
+            cell.beginTime = 0.1
+            cell.scale = 0.2
+            cell.emissionRange = .pi * 2
+            cell.lifetime = 3
+            cell.birthRate = 100
+            cell.velocity = 150
+            cell.color = $0.cgColor
+            cell.spin = 0.1
+            cell.contents = UIImage(named: "confetti")!.cgImage
+            return cell
+        }
+        
+        sublayer.emitterCells = cells
+        view.layer.addSublayer(sublayer)
+
+        confettiTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: (#selector(Shop.updateConfetti)), userInfo: nil, repeats: false)
+    }
+    @objc func updateConfetti() {
+        sublayer.birthRate = 0
+        //sublayer.layer.actions = [NSDictionary dictionaryWithObject:[NSNull null] forKey:@"content"];
+    }
     let scWidth = UIScreen.main.bounds.width - 10
     let scHeight = UIScreen.main.bounds.height / 2
     var selectedRow = 0
@@ -73,8 +117,38 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         label.sizeToFit()
         return label
     }
+    @objc func toolbarDisappear(){
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        //picker2.removeFromSuperview()
+    }
+    @objc func changeTimeText() {
+        self.selectedFocusRow = picker.selectedRow(inComponent: 0)
+        let selectedMin = self.breakMins[self.selectedFocusRow]
+        breakMin.text = "\(selectedMin)"
+        toolbarDisappear()
+    }
+    var picker = UIPickerView()
+
+    var toolBar = UIToolbar()
     @IBOutlet var breakMin: UILabel!
     @IBAction func selectBreak(_ sender: Any) {
+        toolbarDisappear()
+        selectedFocusRow = 0
+        picker = UIPickerView.init(frame:CGRect(x: 0, y: UIScreen.main.bounds.height-scHeight, width: scWidth, height: scHeight))
+        picker.tag = 1
+        picker.dataSource = self
+        picker.delegate = self
+        self.picker.reloadAllComponents()
+
+        picker.backgroundColor = UIColor.lightGray
+        picker.selectRow(selectedFocusRow, inComponent: 0, animated: false)
+        //picker.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(picker)
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: scHeight, width: scWidth, height: 50))
+        toolBar.items = [UIBarButtonItem.init(title: "Cancel", style: .done, target: self, action: #selector(toolbarDisappear)), UIBarButtonItem.init(title: "Select", style: .done, target: self, action: #selector(changeTimeText))]
+        self.view.addSubview(toolBar)
+        /*
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: scWidth, height: scHeight)
         let pickerView = UIPickerView(frame:CGRect(x: 0, y: 0, width: scWidth, height: scHeight))
@@ -95,7 +169,7 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let selectedMin = self.breakMins[self.selectedFocusRow]
             breakMin.text = "\(selectedMin)"
         }))
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)*/
     }
     
     @IBOutlet var oneSwitch: UISwitch!
