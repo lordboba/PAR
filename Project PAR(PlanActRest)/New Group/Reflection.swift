@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Reflection: UIViewController {
+class Reflection: UIViewController, UITextFieldDelegate {
     var maximumContentSizeCategory: UIContentSizeCategory?
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
@@ -19,6 +19,7 @@ class Reflection: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad();
+        userFeedback.delegate = self
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
@@ -35,6 +36,10 @@ class Reflection: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true)
 
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     var dataUpdate = DataUpdate()
     @objc func keyboardWillShow(notification: NSNotification) {
