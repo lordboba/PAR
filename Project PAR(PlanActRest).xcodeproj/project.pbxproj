@@ -17,10 +17,10 @@
 		0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E67295392B100908FB7 /* TaskBrain.swift */; };
 		0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E692953D0FF00908FB7 /* FocusTimer.swift */; };
 		0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E6B2953D82E00908FB7 /* GoalSetting.swift */; };
-		0D885E6E295CCFD300908FB7 /* xp_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */; };
 		0D885E70295D0D8E00908FB7 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */; };
 		0D885E72295E496A00908FB7 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E71295E496A00908FB7 /* Reflection.swift */; };
 		0D885E74295E655000908FB7 /* TaskCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E73295E655000908FB7 /* TaskCompletion.swift */; };
+		0D975DA52977C41D00F02765 /* xp_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */; };
 		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
@@ -309,8 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D975DA52977C41D00F02765 /* xp_ring.mp3 in Resources */,
 				0D8819A72973AAA60086C3C1 /* animatedlogo.gif in Resources */,
-				0D885E6E295CCFD300908FB7 /* xp_ring.mp3 in Resources */,
 				DAC7E2BA294FF19700E0740C /* LaunchScreen.storyboard in Resources */,
 				DAC7E2B7294FF19700E0740C /* Assets.xcassets in Resources */,
 				DAC7E2B5294FF19400E0740C /* Main.storyboard in Resources */,
