@@ -131,6 +131,7 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
             //}
             index += 1
         }
+        actionArray.append(UIAction(title: "", handler: optionClosure))
         //if none {
         //    taskButton.setTitle("Choose", for: .normal)
         //}
@@ -146,11 +147,16 @@ class GoalSetting: UIViewController, UITextFieldDelegate{
     }
     func selectedTask(taskButton: UIButton, action: UIAction, taskDex : Int) {
         taskButton.setTitle(action.title, for: .normal)
-        
+
         let currentlySelectedTask = chosenTaskDex[taskDex]
         let temp = Task(name: action.title,time:0)
         let selectDex = taskBrain.getIndex(task: temp)
         //select a task, if we are replacing another one's task or replacing the current task, then remove the other one
+        if selectDex == -1{
+            taskButton.setTitle("Choose", for: .normal)
+            chosenTasks[taskDex] = "reallynothinghereatall"
+            return
+        }
         if currentlySelectedTask != -1 {
             selected[currentlySelectedTask] = false
             taskToChoose[currentlySelectedTask] = -1
