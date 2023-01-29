@@ -401,7 +401,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         UIView.animate(withDuration: 0.3, animations: {
             
-            desiredView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            desiredView.transform = CGAffineTransform(scaleX: 1, y: 1)
             desiredView.alpha = 1
             
         })
@@ -514,6 +514,7 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         cell.timeLabel.text = "\(taskBrain.tasks[indexPath.row].time) min"
         cell.minusButton.tag = indexPath.row
         cell.minusButton.layer.cornerRadius = 10
+        
         if isEdit == true {
             theTaskLabel.text = "Choose a task to edit"
             cell.contentView.backgroundColor = setRed()
@@ -525,10 +526,16 @@ class TaskPrep: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
 
         } else {
             theTaskLabel.text = "Tasks"
-            cell.contentView.backgroundColor = UIColor.white
+            //cell.contentView.backgroundColor = UIColor.white
             cell.minusButton.setTitle("", for: .normal)
             cell.minusButton.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+            let hex:UInt64 = 0xB9F3FC
+            let r = (hex & 0xff0000) >> 16
+            let g = (hex & 0xff00) >> 8
+            let b = hex & 0xff
+            cell.contentView.backgroundColor = UIColor(red: CGFloat(r) / 256.0, green: CGFloat(g) / 256.0, blue: CGFloat(b) / 256.0, alpha: 1)
         }
+        
         //print("yo")
         return cell
     }
