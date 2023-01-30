@@ -35,6 +35,8 @@
 		DAC7E2D1294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */; };
 		F32240BE2960D1120078FE3D /* ShopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32240BD2960D1120078FE3D /* ShopViewCell.swift */; };
 		F3294D42295E359A00BECF03 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3294D41295E359A00BECF03 /* BreakTimer.swift */; };
+		F3612B8B298843BA00401BC5 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3612B8A298843BA00401BC5 /* Achievements.swift */; };
+		F3612B912988487500401BC5 /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3612B902988487500401BC5 /* AchievementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F32240BD2960D1120078FE3D /* ShopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewCell.swift; sourceTree = "<group>"; };
 		F3294D41295E359A00BECF03 /* BreakTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
+		F3612B8A298843BA00401BC5 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		F3612B902988487500401BC5 /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				0D885E67295392B100908FB7 /* TaskBrain.swift */,
 				0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */,
 				F32240BD2960D1120078FE3D /* ShopViewCell.swift */,
+				F3612B8A298843BA00401BC5 /* Achievements.swift */,
 				0D8819A2296A42A10086C3C1 /* DataUpdate.swift */,
 				0D8819A42973A70C0086C3C1 /* Gif.swift */,
 			);
@@ -131,17 +136,18 @@
 		DA9E4AA52951251600016D9C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */,
-				0D2EF48C2960C43300D97A63 /* Shop.swift */,
-				0D885E6B2953D82E00908FB7 /* GoalSetting.swift */,
 				DA9E4AA72951277000016D9C /* HomeScreen.swift */,
 				0D885E602952BC2000908FB7 /* TaskPrep.swift */,
+				0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */,
+				0D885E6B2953D82E00908FB7 /* GoalSetting.swift */,
 				0D885E692953D0FF00908FB7 /* FocusTimer.swift */,
-				F3294D41295E359A00BECF03 /* BreakTimer.swift */,
 				0D885E71295E496A00908FB7 /* Reflection.swift */,
-				0DF625902963EA4D00E51968 /* Config.xcconfig */,
 				0D885E73295E655000908FB7 /* TaskCompletion.swift */,
+				F3294D41295E359A00BECF03 /* BreakTimer.swift */,
+				0D2EF48C2960C43300D97A63 /* Shop.swift */,
+				F3612B902988487500401BC5 /* AchievementView.swift */,
 				0DE85EEB29883619001E6D3D /* ProgressView.swift */,
+				0DF625902963EA4D00E51968 /* Config.xcconfig */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D885E612952BC2000908FB7 /* TaskPrep.swift in Sources */,
+				F3612B912988487500401BC5 /* AchievementView.swift in Sources */,
 				0D885E74295E655000908FB7 /* TaskCompletion.swift in Sources */,
 				DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */,
 				0D2EF48F2960CF2900D97A63 /* IntermediateScreen.swift in Sources */,
@@ -358,6 +365,7 @@
 				DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */,
 				0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */,
 				0D8819A52973A70C0086C3C1 /* Gif.swift in Sources */,
+				F3612B8B298843BA00401BC5 /* Achievements.swift in Sources */,
 				0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */,
 				F3294D42295E359A00BECF03 /* BreakTimer.swift in Sources */,
 				0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */,
