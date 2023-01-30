@@ -60,6 +60,8 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         coinLabel.text = String(coinCount)
+        
+        
         let fromMain = UserDefaults.standard.bool(forKey: "fromMainMenu")
         if !fromMain {
             breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
@@ -80,6 +82,7 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     print("notification prepared!")
                 }
             }
+        
             
             //print("hi")
             // Do any additional setup after loading the view.
@@ -151,8 +154,11 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         quantity.text = String(quantityInt)
         subtractCoinsInt = 150
         priceCoins.text = "\(subtractCoinsInt) coins"
-                
     }
+    
+    
+    
+
     
     
     @IBOutlet weak var quantity: UILabel!
@@ -193,6 +199,8 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
             quantityInt = 1
             animateOut(desiredView: donateView)
             confetti()
+            userDefaults.set(true, forKey: "firstDonation")
+
             //update database
             
         }

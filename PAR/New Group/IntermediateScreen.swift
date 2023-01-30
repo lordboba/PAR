@@ -20,6 +20,7 @@ class IntermediateScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
+        UserDefaults.standard.set(true, forKey: "cycleFinish")
        
         self.navigationItem.setHidesBackButton(true, animated:true)
         let tutOn = UserDefaults.standard.bool(forKey: "TUTORIAL")
