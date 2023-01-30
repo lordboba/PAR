@@ -23,8 +23,7 @@
 		0D975DA52977C41D00F02765 /* xp_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */; };
 		0DE85EEC29883619001E6D3D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE85EEB29883619001E6D3D /* ProgressView.swift */; };
 		0DE85EEF2988383B001E6D3D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE85EEE2988383B001E6D3D /* SwiftUICharts */; };
-		0DE85EF129884B08001E6D3D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE85EF029884B08001E6D3D /* DataModel.swift */; };
-		0DE85EF329884C00001E6D3D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE85EF229884C00001E6D3D /* DataModel.swift */; };
+		0DE85EF529884C41001E6D3D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE85EF429884C41001E6D3D /* DataModel.swift */; };
 		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
@@ -74,8 +73,7 @@
 		0D885E71295E496A00908FB7 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		0D885E73295E655000908FB7 /* TaskCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletion.swift; sourceTree = "<group>"; };
 		0DE85EEB29883619001E6D3D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		0DE85EF029884B08001E6D3D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		0DE85EF229884C00001E6D3D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		0DE85EF429884C41001E6D3D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0DF625902963EA4D00E51968 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = SOURCE_ROOT; };
 		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DAC7E2AA294FF19400E0740C /* PAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,8 +131,7 @@
 				F3612B8A298843BA00401BC5 /* Achievements.swift */,
 				0D8819A2296A42A10086C3C1 /* DataUpdate.swift */,
 				0D8819A42973A70C0086C3C1 /* Gif.swift */,
-				0DE85EF029884B08001E6D3D /* DataModel.swift */,
-				0DE85EF229884C00001E6D3D /* DataModel.swift */,
+				0DE85EF429884C41001E6D3D /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -367,7 +364,6 @@
 				DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */,
 				0D2EF48F2960CF2900D97A63 /* IntermediateScreen.swift in Sources */,
 				0D8819A3296A42A10086C3C1 /* DataUpdate.swift in Sources */,
-				0DE85EF129884B08001E6D3D /* DataModel.swift in Sources */,
 				0D885E72295E496A00908FB7 /* Reflection.swift in Sources */,
 				DAC7E2B2294FF19400E0740C /* ViewController.swift in Sources */,
 				0D885E68295392B100908FB7 /* TaskBrain.swift in Sources */,
@@ -375,6 +371,7 @@
 				F3612B8B298843BA00401BC5 /* Achievements.swift in Sources */,
 				0D885E6A2953D0FF00908FB7 /* FocusTimer.swift in Sources */,
 				F3294D42295E359A00BECF03 /* BreakTimer.swift in Sources */,
+				0DE85EF529884C41001E6D3D /* DataModel.swift in Sources */,
 				0D885E6C2953D82E00908FB7 /* GoalSetting.swift in Sources */,
 				0D885E70295D0D8E00908FB7 /* CustomTableViewCell.swift in Sources */,
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
@@ -383,7 +380,6 @@
 				0DE85EEC29883619001E6D3D /* ProgressView.swift in Sources */,
 				F32240BE2960D1120078FE3D /* ShopViewCell.swift in Sources */,
 				0D885E66295390EB00908FB7 /* Task.swift in Sources */,
-				0DE85EF329884C00001E6D3D /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

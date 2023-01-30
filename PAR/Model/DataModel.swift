@@ -4,7 +4,6 @@
 //
 //  Created by Tyler Xiao on 1/30/23.
 //
-
 import Foundation
 import SwiftUI
 class DataModel: ObservableObject {
