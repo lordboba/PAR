@@ -8,9 +8,10 @@ import Foundation
 import SwiftUI
 class DataModel: ObservableObject {
     @Published var user_data:Dictionary<String,Any> = [:]
+    @Published var graph:[(String,Double)] = []
     func fetch() {
         var temp = UserDefaults.standard.string(forKey: "USER_ID")
-        temp = "63ba49616cdf01427d699c3f"
+        temp = "63ba63c9d56bcbc03bc73117"
         print("yoo")
         if temp == nil {
             //create new user first, then run api call
@@ -49,8 +50,10 @@ class DataModel: ObservableObject {
                     //self?.user_data = jsonResult
                         DispatchQueue.main.async {
                             self?.user_data = jsonResult as! Dictionary<String,Any>
-                            print("yoo")
+                            //print("yoo")
+                            self?.processData()
                         }
+                    
                     //print(self?.user_data)
                     //print(data_ish)
                     //print(data_result)
@@ -59,9 +62,55 @@ class DataModel: ObservableObject {
                     print(error)
                 }
             }
-        task.resume()
+            task.resume()
 
         }
-
+    func processData() {
+        let doc = user_data["document"]
+        let date = Date()
+        var startDate = date - TimeInterval(Double(518400))
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY-MM-dd"
+        let tempDate = dateFormatter.string(from: startDate) + " 00:00:00"
+        dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
+        startDate = dateFormatter.date(from: tempDate)!
+        print(startDate)
+        //print(doc)
+        var temporDate = startDate
+        for i in 0..<7{
+            dateFormatter = DateFormatter()
+              dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+              dateFormatter.dateFormat = "MM-dd-YY"
+            graph.append((dateFormatter.string(from: temporDate),0))
+            temporDate = temporDate + TimeInterval(Double(86400))
+        }
+        //graph = [0,0,0,0,0,0,0]
+        if doc != nil {
+            let bob = doc as! Dictionary<String,Any>
+            let sessions = bob["sessions"] as! [[String:Any]]
+            for i in 0..<sessions.count {
+                let sess = sessions[i]
+                //print(sess["time"])
+            //    var x = print(session)
+                dateFormatter = DateFormatter()
+                  dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                  dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
+                let currDate = dateFormatter.date(from:sess["date"] as! String)!
+                if currDate >= startDate {
+                    let difference = -Int(startDate.timeIntervalSince(currDate))/(86400)
+                    //print(sess["time"])
+                    if sess["time"] != nil {
+                        let tempName = graph[Int(difference)].0
+                        let tempSum = graph[Int(difference)].1 + Double(sess["time"] as! String)!
+                        graph[Int(difference)] = (tempName,tempSum)
+                        //print(difference)
+                    }
+                    
+                }
+                //print(currDate)
+            }
+        }
+        print(graph)
     }
+}
 
