@@ -45,6 +45,9 @@ class HomeScreen: UIViewController {
     @IBOutlet var tutChangeTxt: UILabel!
     @IBOutlet var tutorialChange: UIView!
     
+    @IBAction func progressCheck(_ sender: Any) {
+        //add
+    }
     @IBAction func TutorialButton(_ sender: Any) {
         print("hi")
         var temp = userDefaults.bool(forKey: "TUTORIAL")

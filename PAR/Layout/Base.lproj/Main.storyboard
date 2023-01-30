@@ -69,6 +69,9 @@
                                                 <buttonConfiguration key="configuration" style="plain">
                                                     <backgroundConfiguration key="background" image="progress"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="progressCheck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFK-rY-ESx"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjK-k5-jzc">
                                                 <rect key="frame" x="154" y="0.0" width="57" height="57"/>
@@ -2416,7 +2419,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3e-6W-jkj"/>
+        <segue reference="6O8-0h-EcQ"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>
