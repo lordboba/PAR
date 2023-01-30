@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeScreen: UIViewController {
     let userDefaults = UserDefaults.standard
@@ -47,6 +48,9 @@ class HomeScreen: UIViewController {
     
     @IBAction func progressCheck(_ sender: Any) {
         //add
+        let vc = UIHostingController(rootView: ProgressView())
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     @IBAction func TutorialButton(_ sender: Any) {
         print("hi")
