@@ -28,7 +28,8 @@ class AchievementView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement", for: indexPath) as! Achievements
         cell.achievementPic.image = achievementPic[indexPath.row]
         cell.achievementDesc.text = achievementDesc[indexPath.row]
-        cell.achieveNumCoins.text = achieveNumCoins[indexPath.row]
+        //cell.achieveNumCoins.text = achieveNumCoins[indexPath.row]
+        cell.achieveNumCoins.text = ""
         cell.tag = indexPath.row
         switch indexPath.row {
         case 0:
