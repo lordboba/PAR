@@ -21,6 +21,8 @@
 		0D885E72295E496A00908FB7 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E71295E496A00908FB7 /* Reflection.swift */; };
 		0D885E74295E655000908FB7 /* TaskCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D885E73295E655000908FB7 /* TaskCompletion.swift */; };
 		0D975DA52977C41D00F02765 /* xp_ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0D885E6D295CCFD300908FB7 /* xp_ring.mp3 */; };
+		0DE85EEC29883619001E6D3D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE85EEB29883619001E6D3D /* ProgressView.swift */; };
+		0DE85EEF2988383B001E6D3D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 0DE85EEE2988383B001E6D3D /* SwiftUICharts */; };
 		DA9E4AA82951277000016D9C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9E4AA72951277000016D9C /* HomeScreen.swift */; };
 		DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AD294FF19400E0740C /* AppDelegate.swift */; };
 		DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */; };
@@ -41,14 +43,14 @@
 			containerPortal = DAC7E2A2294FF19400E0740C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DAC7E2A9294FF19400E0740C;
-			remoteInfo = "PAR";
+			remoteInfo = PAR;
 		};
 		DAC7E2CB294FF19800E0740C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DAC7E2A2294FF19400E0740C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DAC7E2A9294FF19400E0740C;
-			remoteInfo = "PAR";
+			remoteInfo = PAR;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,7 +59,7 @@
 		0D2EF48E2960CF2900D97A63 /* IntermediateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntermediateScreen.swift; path = "PAR/New Group/IntermediateScreen.swift"; sourceTree = SOURCE_ROOT; };
 		0D8819A2296A42A10086C3C1 /* DataUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUpdate.swift; sourceTree = "<group>"; };
 		0D8819A42973A70C0086C3C1 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
-		0D8819A62973AAA60086C3C1 /* animatedlogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = animatedlogo.gif; path = "PAR/animatedlogo.gif"; sourceTree = "<group>"; };
+		0D8819A62973AAA60086C3C1 /* animatedlogo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = animatedlogo.gif; path = PAR/animatedlogo.gif; sourceTree = "<group>"; };
 		0D885E602952BC2000908FB7 /* TaskPrep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskPrep.swift; path = "PAR/New Group/TaskPrep.swift"; sourceTree = SOURCE_ROOT; };
 		0D885E65295390EB00908FB7 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		0D885E67295392B100908FB7 /* TaskBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBrain.swift; sourceTree = "<group>"; };
@@ -67,9 +69,10 @@
 		0D885E6F295D0D8E00908FB7 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		0D885E71295E496A00908FB7 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
 		0D885E73295E655000908FB7 /* TaskCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCompletion.swift; sourceTree = "<group>"; };
+		0DE85EEB29883619001E6D3D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		0DF625902963EA4D00E51968 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = SOURCE_ROOT; };
 		DA9E4AA72951277000016D9C /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		DAC7E2AA294FF19400E0740C /* PAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC7E2AA294FF19400E0740C /* PAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2AD294FF19400E0740C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAC7E2AF294FF19400E0740C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DAC7E2B1294FF19400E0740C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,9 +80,9 @@
 		DAC7E2B6294FF19700E0740C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAC7E2B9294FF19700E0740C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAC7E2BB294FF19700E0740C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DAC7E2C0294FF19700E0740C /* PARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PARTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC7E2C0294FF19700E0740C /* PARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2C4294FF19700E0740C /* Project_PAR_PlanActRest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_Tests.swift; sourceTree = "<group>"; };
-		DAC7E2CA294FF19800E0740C /* PARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PARUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC7E2CA294FF19800E0740C /* PARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC7E2CE294FF19800E0740C /* Project_PAR_PlanActRest_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_UITests.swift; sourceTree = "<group>"; };
 		DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_PAR_PlanActRest_UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F32240BD2960D1120078FE3D /* ShopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DE85EEF2988383B001E6D3D /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,7 @@
 				0D885E71295E496A00908FB7 /* Reflection.swift */,
 				0DF625902963EA4D00E51968 /* Config.xcconfig */,
 				0D885E73295E655000908FB7 /* TaskCompletion.swift */,
+				0DE85EEB29883619001E6D3D /* ProgressView.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -184,7 +189,7 @@
 				DAC7E2B8294FF19700E0740C /* LaunchScreen.storyboard */,
 				DAC7E2BB294FF19700E0740C /* Info.plist */,
 			);
-			path = "PAR";
+			path = PAR;
 			sourceTree = "<group>";
 		};
 		DAC7E2C3294FF19700E0740C /* PARTests */ = {
@@ -192,7 +197,7 @@
 			children = (
 				DAC7E2C4294FF19700E0740C /* Project_PAR_PlanActRest_Tests.swift */,
 			);
-			path = "PARTests";
+			path = PARTests;
 			sourceTree = "<group>";
 		};
 		DAC7E2CD294FF19800E0740C /* PARUITests */ = {
@@ -201,7 +206,7 @@
 				DAC7E2CE294FF19800E0740C /* Project_PAR_PlanActRest_UITests.swift */,
 				DAC7E2D0294FF19800E0740C /* Project_PAR_PlanActRest_UITestsLaunchTests.swift */,
 			);
-			path = "PARUITests";
+			path = PARUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +224,11 @@
 			);
 			dependencies = (
 			);
-			name = "PAR";
-			productName = "PAR";
+			name = PAR;
+			packageProductDependencies = (
+				0DE85EEE2988383B001E6D3D /* SwiftUICharts */,
+			);
+			productName = PAR;
 			productReference = DAC7E2AA294FF19400E0740C /* PAR.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -237,8 +245,8 @@
 			dependencies = (
 				DAC7E2C2294FF19700E0740C /* PBXTargetDependency */,
 			);
-			name = "PARTests";
-			productName = "PARTests";
+			name = PARTests;
+			productName = PARTests;
 			productReference = DAC7E2C0294FF19700E0740C /* PARTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -255,8 +263,8 @@
 			dependencies = (
 				DAC7E2CC294FF19800E0740C /* PBXTargetDependency */,
 			);
-			name = "PARUITests";
-			productName = "PARUITests";
+			name = PARUITests;
+			productName = PARUITests;
 			productReference = DAC7E2CA294FF19800E0740C /* PARUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -293,6 +301,9 @@
 				Base,
 			);
 			mainGroup = DAC7E2A1294FF19400E0740C;
+			packageReferences = (
+				0DE85EED2988383B001E6D3D /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = DAC7E2AB294FF19400E0740C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +365,7 @@
 				DAC7E2AE294FF19400E0740C /* AppDelegate.swift in Sources */,
 				0D2EF48D2960C43300D97A63 /* Shop.swift in Sources */,
 				DAC7E2B0294FF19400E0740C /* SceneDelegate.swift in Sources */,
+				0DE85EEC29883619001E6D3D /* ProgressView.swift in Sources */,
 				F32240BE2960D1120078FE3D /* ShopViewCell.swift in Sources */,
 				0D885E66295390EB00908FB7 /* Task.swift in Sources */,
 			);
@@ -540,7 +552,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95V8P4FK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "PAR/Info.plist";
+				INFOPLIST_FILE = PAR/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Grow & Give";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -579,7 +591,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A95V8P4FK4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "PAR/Info.plist";
+				INFOPLIST_FILE = PAR/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Grow & Give";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -670,7 +682,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "PAR";
+				TEST_TARGET_NAME = PAR;
 			};
 			name = Debug;
 		};
@@ -692,7 +704,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "PAR";
+				TEST_TARGET_NAME = PAR;
 			};
 			name = Release;
 		};
@@ -736,6 +748,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0DE85EED2988383B001E6D3D /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0DE85EEE2988383B001E6D3D /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DE85EED2988383B001E6D3D /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DAC7E2A2294FF19400E0740C /* Project object */;
 }

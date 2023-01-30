@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct DataUpdate : Codable{
+struct DataUpdate : Hashable, Codable{
     var coins : Int = 0
     var donations : [[String:String]] = [[:]]
     var tasks : [[String:String]] = [[:]]
