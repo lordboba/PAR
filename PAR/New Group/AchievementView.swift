@@ -7,15 +7,26 @@
 
 import UIKit
 
-class AchievementView: UIViewController {
+class AchievementView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return achievementPic.count
+    }
     
-    let achievementPic = [UIImage(named: "cycle_pic"), UIImage(named: "grow"), UIImage(named: "give")]
-    let achievementDesc = ["Complete 1 focus cycle", "Grow for 100 minutes", "Give 1st donation"]
-    let achieveNumCoins = ["10", "50", "100"]
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.achieveTable.delegate = self
+        self.achieveTable.dataSource = self
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Achievements", for: indexPath) as! Achievements
+
+
+    }
+    let achievementPic = [UIImage(named: "cycle_pic"), UIImage(named: "grow"), UIImage(named: "give")]
+    let achievementDesc = ["Complete 1st focus cycle", "Grow for 100 minutes", "Give your 1st donation"]
+    let achieveNumCoins = ["10", "50", "100"]
+    @IBOutlet weak var achieveTable: UITableView!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("bob")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Achievement", for: indexPath) as! Achievements
         cell.achievementPic.image = achievementPic[indexPath.row]
         cell.achievementDesc.text = achievementDesc[indexPath.row]
         cell.achieveNumCoins.text = achieveNumCoins[indexPath.row]
@@ -25,7 +36,7 @@ class AchievementView: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170.0
+        return 120.0
     }
 
 }

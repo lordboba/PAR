@@ -60,29 +60,38 @@ class Shop: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         coinLabel.text = String(coinCount)
-       
-        breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
-        // Do any additional setup after loading the view.
-        endTime = userDefaults.object(forKey: endKey) as? Date
-        //nothing
-        let content = UNMutableNotificationContent()
-        content.title = "Timer"
-        content.body = "Your break session is over!"
-        content.sound = UNNotificationSound(named:UNNotificationSoundName("xp_ring.mp3"))
-        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: endTime!), repeats: true)
-        //print(endTime!)
-        let request = UNNotificationRequest(identifier: "id_breakTimer", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { (err) in
-            if err != nil {
-                print("something's wrong")
-            } else {
-                print("notification prepared!")
+        let fromMain = UserDefaults.standard.bool(forKey: "fromMainMenu")
+        if !fromMain {
+            breakPeriod = userDefaults.integer(forKey: "BREAK_TIME")
+            // Do any additional setup after loading the view.
+            endTime = userDefaults.object(forKey: endKey) as? Date
+            //nothing
+            let content = UNMutableNotificationContent()
+            content.title = "Timer"
+            content.body = "Your break session is over!"
+            content.sound = UNNotificationSound(named:UNNotificationSoundName("xp_ring.mp3"))
+            let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second], from: endTime!), repeats: true)
+            //print(endTime!)
+            let request = UNNotificationRequest(identifier: "id_breakTimer", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request) { (err) in
+                if err != nil {
+                    print("something's wrong")
+                } else {
+                    print("notification prepared!")
+                }
             }
+            
+            //print("hi")
+            // Do any additional setup after loading the view.
+            //updates every 1s
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(Shop.updateCounter)), userInfo: nil, repeats: true)
+            
         }
-        //print("hi")
-        // Do any additional setup after loading the view.
-        //updates every 1s
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(Shop.updateCounter)), userInfo: nil, repeats: true)
+        else {
+            breakTimer.text = ""
+        }
+
+        
     }
     @objc func updateCounter() {
         //let currTime = Date()

@@ -168,6 +168,10 @@ class BreakTimer: UIViewController {
         }
     }
     
+    @IBAction func toShop(_ sender: Any) {
+        userDefaults.set(false, forKey: "fromMainMenu")
+    }
+    
     var textList = ["Well done! Each of your productivity minutes are converted to 1 in-game coin 🪙","Spend your coins at the shop 🛒"]
     var i = 0
     var x_pos = [280, 150]

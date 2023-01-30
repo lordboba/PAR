@@ -41,6 +41,8 @@ class HomeScreen: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
     @IBOutlet var logoView: UIImageView!
     
     @IBOutlet var tutChangeTxt: UILabel!
@@ -96,6 +98,17 @@ class HomeScreen: UIViewController {
     
     @IBAction func pressStartB(_ sender: Any) {
         animateOut(desiredView: welcomePop)
+    }
+    
+    @IBAction func achieveButton(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AchievementView") as! AchievementView
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func shopButton(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Shop") as! Shop
+        userDefaults.set(true, forKey: "fromMainMenu")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func animateInTut(desiredView: UIView, x: Int, y: Int) {
