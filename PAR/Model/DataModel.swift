@@ -9,6 +9,7 @@ import SwiftUI
 class DataModel: ObservableObject {
     @Published var user_data:Dictionary<String,Any> = [:]
     @Published var graph:[(String,Double)] = []
+    @Published var graphImp:[(String,Double)] = []
     func fetch() {
         var temp = UserDefaults.standard.string(forKey: "USER_ID")
         temp = "63ba63c9d56bcbc03bc73117"
@@ -82,9 +83,14 @@ class DataModel: ObservableObject {
               dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
               dateFormatter.dateFormat = "MM-dd-YY"
             graph.append((dateFormatter.string(from: temporDate),0))
+            graphImp.append((dateFormatter.string(from: temporDate),0))
+
             temporDate = temporDate + TimeInterval(Double(86400))
         }
         //graph = [0,0,0,0,0,0,0]
+        var totalImp = 0.0
+        var numImp = 0
+        var currDex = 0
         if doc != nil {
             let bob = doc as! Dictionary<String,Any>
             let sessions = bob["sessions"] as! [[String:Any]]
@@ -99,9 +105,19 @@ class DataModel: ObservableObject {
                 if currDate >= startDate {
                     let difference = -Int(startDate.timeIntervalSince(currDate))/(86400)
                     //print(sess["time"])
+                    if difference > currDex {
+                        while currDex < difference {
+                            let tempName = graphImp[Int(currDex)].0
+                            let tempSum = totalImp/Double(numImp)
+                            graphImp[Int(currDex)] = (tempName, tempSum)
+                            currDex += 1
+                        }
+                    }
                     if sess["time"] != nil {
                         let tempName = graph[Int(difference)].0
                         let tempSum = graph[Int(difference)].1 + Double(sess["time"] as! String)!
+                        totalImp += Double(sess["impression"] as! String)!
+                        numImp += 1
                         graph[Int(difference)] = (tempName,tempSum)
                         //print(difference)
                     }
@@ -110,7 +126,11 @@ class DataModel: ObservableObject {
                 //print(currDate)
             }
         }
-        print(graph)
+        let tempName = graphImp[Int(currDex)].0
+        let tempSum = totalImp/Double(numImp)
+        graphImp[Int(currDex)] = (tempName, tempSum)
+        
+        print(graphImp)
     }
 }
 
