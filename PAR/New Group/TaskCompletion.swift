@@ -30,7 +30,12 @@ class TaskCompletion: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         chosenTasks = (userDefaults.object(forKey: "CHOSEN_TASKS") as? [String])!
         chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
         confetti()
-
+        var totalFocus = userDefaults.integer(forKey: "totalFocus")
+        if totalFocus == nil {
+            totalFocus = 0
+        }
+        totalFocus += minFocus
+        userDefaults.set(totalFocus, forKey: "totalFocus")
         //chosenTaskDex = (userDefaults.object(forKey: "CHOSEN_TASK_DEX") as? [Int])!
         var dex = 0
         //print(chosenTasks)

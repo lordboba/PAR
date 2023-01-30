@@ -16,10 +16,9 @@ class AchievementView: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         self.achieveTable.delegate = self
         self.achieveTable.dataSource = self
-        
-
 
     }
+    let userDefaults = UserDefaults.standard
     let achievementPic = [UIImage(named: "cycle_pic"), UIImage(named: "grow"), UIImage(named: "give")]
     let achievementDesc = ["Complete 1st focus cycle", "Grow for 100 minutes", "Give your 1st donation"]
     let achieveNumCoins = ["10", "50", "100"]
@@ -31,6 +30,17 @@ class AchievementView: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.achievementDesc.text = achievementDesc[indexPath.row]
         cell.achieveNumCoins.text = achieveNumCoins[indexPath.row]
         cell.tag = indexPath.row
+        switch indexPath.row {
+        case 0:
+            print("bruh")
+        case 1:
+            let growMin = userDefaults.integer(forKey: "totalFocus")
+            if growMin >= 100 {
+                
+            }
+        default:
+            print("row not found!")
+        }
         //print("yo")
         return cell
     }
