@@ -24,10 +24,14 @@ struct ProgressView: View {
                     ForEach(dataModel.user_data["document"]["sessions"], id \.self) { session in
                         print(session)
                     }*/
-                    var doc = dataModel.user_data["document"]
+                    let doc = dataModel.user_data["document"]
                     if doc != nil {
-                        var bob = doc as! Dictionary<String,Any>
-                        var x = print(bob["sessions"])
+                        let bob = doc as! Dictionary<String,Any>
+                        let sessions = bob["sessions"] as! [[String:Any]]
+                        ForEach(sessions) { session in
+                            var x = print(session)
+
+                        }
                     }
                     LineChartView(data:[8,23,54,32,12,37,7,23,43], title:"Past 7 Days",legend: "Productive Minutes", form: ChartForm.large)
                 }
@@ -40,7 +44,10 @@ struct ProgressView: View {
         }
     }
 }
-
+private struct impression: Identifiable {
+    var id: ObjectIdentifier
+    let arr : [String:Any]
+}
 struct ProgressView_Previews: PreviewProvider {
     static var previews: some View {
         ProgressView()
