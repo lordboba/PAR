@@ -92,18 +92,23 @@ class DataModel: ObservableObject {
         var numImp = 0
         var currDex = 0
         //print(doc g)
-        if doc as? String != nil {
+        //print(doc)
+        if doc as? [String:Any] != nil {
             let bob = doc as! Dictionary<String,Any>
             let sessions = bob["sessions"] as! [[String:Any]]
+            //print(sessions)
             for i in 0..<sessions.count {
                 let sess = sessions[i]
+                
                 //print(sess["time"])
             //    var x = print(session)
                 dateFormatter = DateFormatter()
                   dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
                   dateFormatter.dateFormat = "YY-MM-dd HH:mm:ss"
                 let currDate = dateFormatter.date(from:sess["date"] as! String)!
+                //print(sess)
                 if currDate >= startDate {
+                    //print(sess)
                     let difference = -Int(startDate.timeIntervalSince(currDate))/(86400)
                     //print(sess["time"])
                     if difference > currDex {
