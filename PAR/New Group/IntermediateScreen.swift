@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 class IntermediateScreen: UIViewController {
     var maximumContentSizeCategory: UIContentSizeCategory?
     @objc func dismissKeyboard() {
@@ -48,7 +48,9 @@ class IntermediateScreen: UIViewController {
     @IBOutlet var soonView: UIView!
     @IBAction func progressTrack(_ sender: Any) {
         //track next progress
-        animateIn(desiredView: soonView)
+        //animateIn(desiredView: soonView)
+        let vc = UIHostingController(rootView: ProgressView())
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     func animateIn(desiredView: UIView) {
         let backgroundView = self.view!

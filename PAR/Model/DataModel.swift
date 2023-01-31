@@ -12,7 +12,7 @@ class DataModel: ObservableObject {
     @Published var graphImp:[(String,Double)] = []
     func fetch() {
         var temp = UserDefaults.standard.string(forKey: "USER_ID")
-        temp = "63ba63c9d56bcbc03bc73117"
+        //temp = "63ba63c9d56bcbc03bc73117"
         print("yoo")
         if temp == nil {
             //create new user first, then run api call
@@ -91,7 +91,8 @@ class DataModel: ObservableObject {
         var totalImp = 0.0
         var numImp = 0
         var currDex = 0
-        if doc != nil {
+        //print(doc g)
+        if doc as? String != nil {
             let bob = doc as! Dictionary<String,Any>
             let sessions = bob["sessions"] as! [[String:Any]]
             for i in 0..<sessions.count {
