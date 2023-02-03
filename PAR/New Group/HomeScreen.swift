@@ -15,6 +15,34 @@ class HomeScreen: UIViewController {
     @objc func nextTut() {
         animateOut(desiredView: welcomePop)
     }
+    @objc func nextView() {
+        animateOut(desiredView: infoView)
+    }
+    @IBAction func changeTut(_ sender: Any) {
+        if tutSwitch.isOn {
+            userDefaults.set(true, forKey: "TUTORIAL")
+        } else {
+            userDefaults.set(false, forKey: "TUTORIAL")
+        }
+    }
+    
+    @IBAction func finishInfo(_ sender: Any) {
+        nextView()
+    }
+    @IBAction func infoButton(_ sender: Any) {
+        var tapTut:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nextView))
+        infoView.addGestureRecognizer(tapTut)
+        var temp = userDefaults.bool(forKey: "TUTORIAL")
+
+        if temp{
+            tutSwitch.isOn = true
+        } else {
+            tutSwitch.isOn = false
+        }
+        animateIn(desiredView: infoView)
+    }
+    @IBOutlet var infoView: UIView!
+    @IBOutlet var tutSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.maximumContentSizeCategory = .medium
@@ -22,7 +50,8 @@ class HomeScreen: UIViewController {
         welcomePop.addGestureRecognizer(tapTut)
         self.logoView.loadGif(name: "animatedlogo")
         var temp = userDefaults.bool(forKey: "TUTORIAL")
-        if temp == nil {
+        print(temp)
+        if userDefaults.object(forKey: "TUTORIAL") == nil {
             temp = true
             userDefaults.set(true, forKey: "TUTORIAL")
         }

@@ -22,8 +22,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5Hh-hE-tni">
                                 <rect key="frame" x="0.0" y="48" width="414" height="742"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nm-8l-AN7">
+                                        <rect key="frame" x="50" y="0.0" width="314" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-R8-DEk">
+                                                <rect key="frame" x="290" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="qcn-zR-kH2"/>
+                                                    <constraint firstAttribute="width" constant="24" id="xFR-av-LnB"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <backgroundConfiguration key="background" image="info.circle.fill" catalog="system"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="infoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mg8-lI-rXj"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="12r-6e-Eka"/>
+                                            <constraint firstItem="FAf-R8-DEk" firstAttribute="centerY" secondItem="5nm-8l-AN7" secondAttribute="centerY" id="96f-7P-ZPT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FAf-R8-DEk" secondAttribute="trailing" id="YnZ-0k-fZP"/>
+                                            <constraint firstAttribute="trailing" secondItem="FAf-R8-DEk" secondAttribute="trailing" id="dgv-ps-cPd"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grow &amp; Give " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUS-Jt-Qep">
-                                        <rect key="frame" x="82" y="0.0" width="250" height="211"/>
+                                        <rect key="frame" x="82" y="74" width="250" height="137"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="42"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -96,6 +122,10 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5nm-8l-AN7" secondAttribute="trailing" constant="50" id="2L9-lL-2I9"/>
+                                    <constraint firstItem="5nm-8l-AN7" firstAttribute="leading" secondItem="5Hh-hE-tni" secondAttribute="leading" constant="50" id="vjc-mN-3p2"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -110,9 +140,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="lru-KX-Zam"/>
                     <connections>
+                        <outlet property="infoView" destination="ByZ-vJ-uAX" id="K9v-FL-nmu"/>
                         <outlet property="logoView" destination="r8W-i5-tYn" id="SaR-FJ-wMR"/>
                         <outlet property="tutChangeTxt" destination="7B4-ZZ-6GP" id="kHd-6p-Ype"/>
                         <outlet property="tutImg" destination="3G5-Rs-Q0n" id="N0I-6b-UEF"/>
+                        <outlet property="tutSwitch" destination="1MI-b8-gyA" id="fC2-T0-Ilz"/>
                         <outlet property="tutorialChange" destination="j0h-0x-XCv" id="T3y-Y7-MBK"/>
                         <outlet property="welcomePop" destination="1kL-35-68L" id="7LR-9E-3QM"/>
                     </connections>
@@ -172,6 +204,52 @@
                         </label>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="ilp-L4-Xj8"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" id="ByZ-vJ-uAX">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="345"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VyS-YH-z71">
+                            <rect key="frame" x="96" y="272" width="46" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Ok"/>
+                            <connections>
+                                <action selector="doneB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhP-hY-1Ya"/>
+                                <action selector="finishInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJa-Fg-k7B"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Grow&quot; by planning your productive tasks!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWg-s9-jDN">
+                            <rect key="frame" x="14" y="21" width="210" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&quot;Give&quot; in game coins from productive minutes to real-world charities!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-QJ-KAm">
+                            <rect key="frame" x="14" y="86" width="210" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1MI-b8-gyA">
+                            <rect key="frame" x="96" y="233" width="49" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="changeTut:" destination="BYZ-38-t0r" eventType="valueChanged" id="SMo-2H-9HO"/>
+                            </connections>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutorial Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oT-QO-yRM">
+                            <rect key="frame" x="66" y="181" width="109" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="1TW-gK-p0m"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </objects>
@@ -2485,7 +2563,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G3e-6W-jkj"/>
+        <segue reference="6O8-0h-EcQ"/>
         <segue reference="01K-vi-YNS"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2501,6 +2579,7 @@
         <image name="frownyface" width="95" height="95"/>
         <image name="goals" width="83" height="68.5"/>
         <image name="greenTimerCircle" width="166.5" height="166.5"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="mind" width="100" height="97"/>
         <image name="motivation" width="172" height="161"/>
         <image name="myTasks" width="86.5" height="88"/>
