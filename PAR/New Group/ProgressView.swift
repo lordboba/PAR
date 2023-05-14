@@ -25,10 +25,11 @@ struct ProgressView: View {
                         print(session)
                     }*/
                    
-                    BarChartView(data:ChartData(values:dataModel.graph), title:"Productive Minutes",legend: "Past 7 Days", form: ChartForm.medium)
+                BarChartView(data:ChartData(values:dataModel.graph), title:"Productive Minutes",legend: "Past 7 Days", form: ChartForm.medium)
                     BarChartView(data:ChartData(values:dataModel.graphImp), title:"Average Self-Impression",legend: "Past 7 Days", form: ChartForm.medium)
                     
                 }
+                
             }
             .navigationTitle("Progress")
             .onAppear {
